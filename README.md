@@ -31,10 +31,4 @@ Ce projet consiste à mettre en place un système permettant de prélever les fr
    - Installer MySQL sur votre machine si ce n'est pas déjà fait.
    - Créer une nouvelle base de données et importer le schéma fourni.
 
-## Auteurs
-
-- [Mouhamed Lamine Faye](lien_vers_votre_profil_github) - Développeur
-- [Elhadji Cissé](lien_vers_leur_profil_github) - Electronicien 
-- [Amat](lien_vers_leur_profil_github) - Electronicien 
-- [Louis Praise](lien_vers_leur_profil_github) - Electronicien 
 
