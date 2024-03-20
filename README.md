@@ -23,12 +23,10 @@ Ce projet vise à développer un logiciel de gestion de patients permettant aux 
 
 ## Auteurs
 
-- [Mouhamed Lamine FAYE](lien_vers_votre_profil_github) - Développeur principal
-- [Adolphe Amadou GALLAND](lien_vers_leur_profil_github) - Contributeur
-- [ElHadj Saloume CISSE](lien_vers_votre_profil_github) - Développeur principal
-- [Cheikh LY](lien_vers_leur_profil_github) - Contributeur
-- [Rawane DIOUF](lien_vers_leur_profil_github) - Contributeur
-- [Amath DIOP](lien_vers_leur_profil_github) - Contributeur
-- [Louis DIEME](lien_vers_leur_profil_github) - Contributeur
-
-
+- [Mouhamed Lamine FAYE](lien_vers_votre_profil_github) 
+- [Adolphe Amadou GALLAND](lien_vers_leur_profil_github)
+- [ElHadj Saloume CISSE](lien_vers_votre_profil_github) 
+- [Cheikh LY](lien_vers_leur_profil_github) 
+- [Rawane DIOUF](lien_vers_leur_profil_github) 
+- [Amath DIOP](lien_vers_leur_profil_github) 
+- [Louis DIEME](lien_vers_leur_profil_github)
