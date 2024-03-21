@@ -1,5 +1,7 @@
 persistence/HELP.md
 persistence/target
+persistence/src/test
+persistence/src/main/resources/application.properties
 persistencepersistence/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
