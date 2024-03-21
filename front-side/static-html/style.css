@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background-image: url(unrecognizable-doctor-white-coat-using-computer-work.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Register page */
+#register_page{
+    border-radius: 10px;
+    border: 0.5px dodgerblue solid;
+    position: relative;
+    padding: 50px 100px;
+    width: 500px;
+    background-color: white;
+}
+div #inscription{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+div #inscription:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#register_page input, #register_page select{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 17px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+#register_page input{
+    padding-right: 50px;
+}
+#register_page input:focus, #register_page select:focus{
+    outline-color: dodgerblue;
+}
+#register_page h2{
+    margin-bottom: 50px;
+    text-align: center;
+    color: gray;
+    font-size: 30px;
+}
+#register_page i{
+    font-size: 20px;
+    vertical-align: middle;
+}
+.bxs-user{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+.bx-male-female{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+.bxs-wallet{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+.bx-link{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+.bx-id-card{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+.bxs-phone{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+.bxs-briefcase{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+.bx-map{
+    position: absolute;
+    right: 25%;
+    margin-top: 10px;
+}
+#connect{
+    padding: 10px;
+    font-size: 17px;
+    color: white;
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+    border-radius: 10px;
+    width: 300px;
+    margin-top: 50px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+#connect:hover{
+    background-color: white;
+    color: dodgerblue;
+}
+.civility select{
+    appearance: none;
+}
+
+/*Inscription page*/
+#inscription_page{
+    border-radius: 10px;
+    border: 0.5px dodgerblue solid;
+    position: relative;
+    padding: 30px 100px;
+    width: 500px;
+    background-color: white;
+}
+#inscription_page input, #inscription_page select{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 17px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+#inscription_page input{
+    padding-right: 50px;
+}
+#inscription_page input:focus, #inscription_page select:focus{
+    outline-color: dodgerblue;
+}
+#inscription_page h2{
+    margin-bottom: 50px;
+    text-align: center;
+    color: gray;
+    font-size: 30px;
+}
+#inscription_page i{
+    font-size: 20px;
+    vertical-align: middle;
+}
+#inscrire{
+    padding: 10px;
+    font-size: 17px;
+    color: white;
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+    border-radius: 10px;
+    width: 300px;
+    margin-top: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+#inscrire:hover{
+    background-color: white;
+    color: dodgerblue;
+}
+div #age {
+    width: 50px !important;
+    text-align: center;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin-right: -40px;
+}
+div #tel{
+    width: 200px;
+}
+#int{
+    display: flex;
+}
+#int div{
+    margin-right: 40px;
+}
+#inscription_valid{
+    border-radius: 10px;
+    border: 0.5px dodgerblue solid;
+    position: relative;
+    padding: 20px 50px;
+    width: 500px;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    background-color: white;  
+}
+.text{
+    font-size: 17px;
+}
+#connectAfter{
+    padding: 10px;
+    font-size: 17px;
+    color: white;
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+    border-radius: 10px;
+    width: 150px;
+    margin-top: 30px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+#connectAfter:hover{
+    background-color: white;
+    color: dodgerblue;
+}
+#quit{
+    padding: 10px;
+    font-size: 17px;
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 10px;
+    width: 150px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+#quit:hover{
+    background-color: white;
+    color: red;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+/* Styles pour l'arrière-plan obscurci */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+#popup{
+    text-align: center;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#popup button{  
+    padding: 7px;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+#close{
+    font-weight: 500;
+}
+
+
+@media (max-width: 768px) {
+    #container_1, #container_2, #container_3 {
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    #container_1, #container_2, #container_3 {
+        width: 100%;
+    }
+    #container_1 #start {
+        font-size: 16px;
+        padding: 8px 20px;
+        margin-top: 100px
+    }
+    #condition h3 {
+        font-size: 20px;
+        top: 10%;
+    }
+   .questionContent{
+        position: absolute;
+        top: 0px;
+        padding-bottom: 50px;
+   }
+   #question{
+        padding: 75px 10px;
+   }
+   .finishing{
+        display: flex;
+        flex-direction: row-reverse;
+   }
+   .bx{
+        position: absolute;
+        right: 15%;
+        margin-top: 10px;
+   }
+   .condition_bottom{
+        position: absolute;
+        bottom: 7%;
+        right: 10%;
+    }
+    #container_2{
+        position: relative;
+    }
+    #text{
+        position: absolute;
+        top: 20%;
+        padding: 0px 30px;
+    }
+    .textContent{
+        color: black;
+        text-align: center;
+        font-size: 17px;
+    }
+    #question{
+        text-align: center;
+        padding-bottom: 2rem;
+        font-weight: 500;
+        font-size: 20px;
+        padding: 4rem;
+        color: black;
+        margin-bottom: 50px;
+    }
+    #restart{
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+        width: 120px;
+    }
+}
+@media (max-width: 570px){
+    .bx{
+        position: absolute;
+        right: 30%;
+        margin-top: 10px;
+   }
+   #condition{
+        padding: 0px 30px;
+    }
+    #text{
+        top: 20%;
+    }
+    #condition h3{
+        top: 10%;
+    }
+    #container_1 #start {
+        font-size: 16px;
+        padding: 8px 20px;
+        margin-top: 50px
+    }
+    #question{
+        text-align: center;
+        padding-bottom: 2rem;
+        font-weight: 500;
+        font-size: 20px;
+        padding: 4rem;
+        color: black;
+        margin-bottom: 50px;
+    }
+}
+@media (max-width: 450px){
+    .bx{
+        position: absolute;
+        right: 20%;
+        margin-top: 10px;
+    }
+    #question{
+        padding: 75px 10px;
+    }
+}
+@media (max-width: 370px){
+    .bx{
+        position: absolute;
+        right: 20%;
+        margin-top: 10px;
+    }
+   #condition ul li{
+        font-size: 13px;
+    }
+   #text{
+        position: absolute;
+        top: 10%;
+        padding: 0px 30px;
+    }
+    #condition{
+        padding: 0px 30px;
+    }
+    #container_1 #start {
+        font-size: 16px;
+        padding: 8px 20px;
+        margin-top: 100px
+    }
+    .condition_bottom{
+        display: flex;
+    }
+    #question{
+        padding: 75px 10px;
+    }
+   #restart{
+        position: absolute;
+        bottom: 10%;
+        right: 2%;
+    }
+    #question{
+        text-align: center;
+        padding-bottom: 2rem;
+        font-weight: 500;
+        font-size: 20px;
+        padding: 4rem;
+        color: black;
+        margin-bottom: 50px;
+    }
+}
+@media (max-width: 250px){
+    .bx{
+        position: absolute;
+        right: 10%;
+        margin-top: 10px;
+   }
+   #container_1 #start {
+        font-size: 16px;
+        padding: 8px 20px;
+        margin-top: 150px
+    }
+    #question{
+        text-align: center;
+        padding-bottom: 2rem;
+        font-weight: 500;
+        font-size: 20px;
+        padding: 4rem;
+        color: black;
+        margin-bottom: 50px;
+    }
+}

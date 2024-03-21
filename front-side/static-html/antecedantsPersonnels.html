@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="patient.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Gestion Medicale</title>
+</head>
+<body>
+    <div class="champ">
+        <div class="medicaux">
+            <h3>Médicaux :</h3>
+            <p>HTA-Gravidique :</p>
+            <div>
+                <input type="radio" name="hta">
+                <label for="yes">Oui</label>
+                <input type="radio" name="hta">
+                <label for="no">Non</label><br>
+
+                <p>Autres</p>
+                <input type="text" id="hta" placeholder="A préciser">
+            </div>
+        </div>
+
+        <div class="gynecObst">
+            <h3>Gynéco-Obstétricaux :</h3>
+            <div>
+                <input type="checkbox" name="gyo">
+                <label for="gyo">Ménarche</label>
+                <input type="checkbox" name="gyo">
+                <label for="gyo">Gestité</label>
+                <input type="checkbox" name="gyo">
+                <label for="gyo">Parité</label>
+                <input type="checkbox" name="gyo">
+                <label for="gyo">Grossesses Gémelaires</label>
+                <input type="checkbox" name="gyo">
+                <label for="gyo">Tocolyse Prolongée (4 semaines) </label>
+            </div>
+        </div>
+
+        <div class="antecedants">
+            <h3>ATCD de décompensation durant la dernière grossesse :</h3>
+            <div>
+                <input type="radio" name="atcd">
+                <label for="yes">Oui</label>
+                <input type="radio" name="atcd">
+                <label for="no">Non</label><br>
+
+                <label for="nbre">Nombre de décompensation</label>
+                <input type="input" id="nombreDecomp" placeholder="__">
+            </div>
+        </div>
+
+        <div class="lack">
+            <h3>Type d'insuffisance cardiaque :</h3>
+            <div>
+                <input type="checkbox" name="lack">
+                <label for="ivg">IVG</label>
+                <input type="checkbox" name="lack">
+                <label for="ivd">IVD</label>
+                <input type="checkbox" name="lack">
+                <label for="icg">ICG</label>
+            </div>
+        </div>
+
+        <div class="hospitalisation">
+            <h3>Hospitalisations antérieures :</h3>
+            <div>
+                <input type="radio" name="previousHospi">
+                <label for="yes">Oui</label>
+                <input type="radio" name="previousHospi">
+                <label for="no">Non</label><br>
+
+                <label for="nbre">Nombre d'hospitalisations antérieur</label>
+                <input type="input" id="nombreDecomp" placeholder="__">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

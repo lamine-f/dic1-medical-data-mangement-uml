@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+header{
+    position: relative;
+    padding: 10px 3%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background-color: transparent;
+}
+.title{
+    margin-right: auto;
+}
+.logo{
+    cursor: pointer;
+} 
+.logo img{
+    width: 100px;
+}
+.users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.assistant, .medecin, .admin{
+    width: 250px;
+    height: 270px;
+    margin-right: 50px;
+    box-shadow: 1px 1px 25px #0000004d;
+    margin-bottom: 200px;
+    position: relative;
+}
+.assistant:hover, .medecin:hover, .admin:hover{
+    height: 280px;
+    width: 260px;
+    transition: all ease .5s;
+    border: 1px solid dodgerblue;
+    padding: 0px 5px;
+}
+.image{
+    background-size: contain;
+    height: 500px;
+    background-position: center;
+    margin-top: 30px;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin-bottom: 100px;
+    background-image: url(./worplace-modern-hospital.jpg);
+}
+h2{
+    color: dodgerblue;
+}
+.users h4{
+    text-align: center;
+    margin-top: 15%;
+    font-size: 20px;
+}
+.users p{
+    text-align: center;
+    margin-top: 20px;
+}
+button{
+    position: absolute ;
+    bottom: 10%;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 3px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    padding: 5px;
+}

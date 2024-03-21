@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Gestion Medicale</title>
+</head>
+<body>
+    <div class="page" id="inscription_page">
+        <h2>Inscription</h2>
+        <div class="input_container">
+            <i class='bx bxs-user'></i>
+            <input type="text" placeholder="Nom Patient" id="name" required>
+        </div>
+        <div class="civility">
+            <i class='bx bx-male-female'></i>
+            <select name="genre" id="genre" required>
+                    <option value="Civilité" selected disabled>Civilité</option>
+                    <option value="monsieur">Mr</option>
+                    <option value="madame">Mme</option>
+            </select>
+        </div>
+        <div class="civility">
+            <i class='bx bx-link'></i>
+            <select required id="matrimoniale">
+                <option value="situation" selected disabled>Situation Matrimoniale</option>
+                <option value="marie">Marié(e)</option>
+                <option value="single">Célibataire</option>
+                <option value="divorced">Divorcé(e)</option>
+                <option value="dead">Veuf(ve)</option>
+            </select>
+        </div>
+        <div id="int">
+            <div>
+                <input type="number" min="0" required id="age" placeholder="Age">
+            </div>
+            <div>
+                <i class='bx bxs-phone'></i>
+                <input type="number" required id="tel" placeholder="Téléphone">
+            </div>
+        </div>
+        <div>
+            <i class='bx bx-map'></i>
+            <input type="text" required id="address" placeholder="Adresse">
+        </div>
+        <div>
+            <i class='bx bxs-briefcase'></i>
+            <input type="text" required id="profession" placeholder="Profession">
+        </div>
+        <div class="civility">
+            <i class='bx bxs-wallet'></i>
+            <select required id="socioLevel">
+                <option value="niveau" selected disabled>Niveau Socioéconomique</option>
+                <option value="good">Bon</option>
+                <option value="middle">Moyen</option>
+                <option value="bad">Bas</option>
+            </select>
+        </div>
+
+        <button id="inscrire">Inscrire le patient</button>
+        
+        <div class="popup" id="popup">
+            <p>Veuillez renseigner tous les champs du formulaire !</p><br>
+            <button onclick="fermerPopup()" id="close">Fermer</button>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    <div id="inscription_valid">
+        <div class="text">
+            <p>Patient(e) enregistré(e) avec succès</p><br>
+            <p>Matricule patient : <span id="matriculeID"></span></p>
+            <a href="connexion.html">
+                <button id="connectAfter">Se connecter</button>
+            </a>
+            <a href="main.html">
+                <button id="quit">Quitter</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="inscription.js"></script>
+</body>
+</html>

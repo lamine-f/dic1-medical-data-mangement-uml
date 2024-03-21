@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Gestion Medicale</title>
+</head>
+<body>
+    <div class="page" id="register_page">
+        <h2>Connexion</h2>
+        <div class="input_container">
+            <i class='bx bxs-user'></i>
+            <input type="text" placeholder="Nom Patient" id="name" required>
+        </div>
+        <div class="civility">
+            <i class='bx bx-male-female'></i>
+            <select name="genre" id="genre" required placeholder="Civilité">
+                    <option value="Civilité" selected disabled>Civilité</option>
+                    <option value="monsieur">Mr</option>
+                    <option value="madame">Mme</option>
+            </select>
+        </div>
+        <div class="input_container">
+            <i class='bx bx-id-card'></i>
+            <input type="text" placeholder="Matricule" id="matricule" required>
+        </div>
+        <a href="#" id="href">
+            <button id="connect">Se connecter</button>
+        </a>
+        <div>
+            <a href="inscription.html" id="inscription">Inscrire un(e) patient(e)</a>
+        </div>
+
+        <div class="popup" id="popup">
+            <p>Veuillez renseigner tous les champs !</p><br>
+            <button onclick="fermerPopup()" id="close">Fermer</button>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+    </div>
+
+    <script src="connexion.js"></script>
+</body>
+</html>

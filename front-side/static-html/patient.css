@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: var(--primary--color);
+    overflow-x: hidden;
+    color: var(--secondary--color);
+    font-size: 18px;
+}
+input[type]{
+    vertical-align: middle;
+}
+.champ{
+    display: grid;
+    place-content: center;
+}
+.champ div{
+    margin-bottom: 5%;
+}
+.champ h3{
+    color: dodgerblue;
+    margin-bottom: 20px;
+}
+.medicaux{
+    padding-top: 5%;
+}
+#nombreDecomp{
+    width: 40px;
+    text-align: center;
+    padding: 3px;
+    border: none;
+    /* border: 0.3px solid dodgerblue; */
+    border-radius: 5px;
+}
+#hta{
+    border: none;
+    padding: 3px;
+    border-radius: 5px;
+}
+#nombreDecomp, #hta{
+    outline: 0.5px solid dodgerblue;
+}
