@@ -1,0 +1,12 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+front-side/webapp/node_modules
+
+back-side/persistence/.mvn
+back-side/persistence/target
+
+**mvnw**
