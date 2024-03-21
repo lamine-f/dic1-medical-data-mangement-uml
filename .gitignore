@@ -1,8 +1,8 @@
-persistence/HELP.md
-persistence/target
-persistence/src/test
+*/persistence/HELP.md
+*/persistence/target
+*/persistence/src/test
 #persistence/src/main/resources/application.properties
-persistencepersistence/.mvn/wrapper/maven-wrapper.jar
+*/persistencepersistence/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -33,3 +33,29 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+###### React ######
+
+# dependencies
+front-side/webapp/node_modules
+front-side/webapp/.pnp
+front-side/webapp.pnp.js
+
+# testing
+front-side/webapp/coverage
+
+# production
+front-side/webapp/build
+
+# misc
+front-side/webapp/.DS_Store
+front-side/webapp/.env.local
+front-side/webapp/.env.development.local
+front-side/webapp/.env.test.local
+front-side/webapp/.env.production.local
+
+front-side/webapp/npm-debug.log*
+front-side/webapp/yarn-debug.log*
+front-side/webapp/yarn-error.log*
