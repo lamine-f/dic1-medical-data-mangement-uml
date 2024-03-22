@@ -1,0 +1,14 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.main {
+    width: calc( 100% - var(--sidebar-width) ) ;
+}
+
+.toaster {
+    z-index: 10;
+}

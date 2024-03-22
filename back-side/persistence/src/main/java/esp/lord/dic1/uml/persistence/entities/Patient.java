@@ -8,6 +8,8 @@ import lombok.*;
 import java.util.Date;
 import java.util.List;
 
+
+//[TODO] envoyer à Rawane un template
 @NoArgsConstructor @AllArgsConstructor @Setter @Getter @ToString
 @Entity
 public class Patient {
