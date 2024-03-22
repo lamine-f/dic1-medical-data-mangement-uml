@@ -1,7 +1,7 @@
 import styles from "./Login.module.css";
-import SecondaryButton from "../../../../_shared_components/SecondaryButton/SecondaryButton.component";
-import InputText from "../../../../_shared_components/InputText/InputText.component";
-import PrimaryButton from "../../../../_shared_components/PrimaryButton/PrimaryButton.component";
+import SecondaryButton from "../../../../sharedComponents/SecondaryButton/SecondaryButton.component";
+import InputText from "../../../../sharedComponents/InputText/InputText.component";
+import PrimaryButton from "../../../../sharedComponents/PrimaryButton/PrimaryButton.component";
 import {useState} from "react";
 import useLogin from "../../../../_hooks/useLogin";
 

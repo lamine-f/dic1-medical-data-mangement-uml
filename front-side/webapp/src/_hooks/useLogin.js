@@ -5,19 +5,15 @@ import toast from "react-hot-toast";
 import {useEffect} from "react";
 
 export default function useLogin () {
-
     const connection = useConnectionContext();
     const loader = useLoaderContext();
     const loadTime = 1000;
     const navigate = useNavigate();
-
     useEffect(() => {
-        if (connection.user.isConnected) {
+        if (connection.user.isConnected)
             navigate("dashboard")
-        }
     }, [connection]);
-
-    return function (credentials)  {
+    return (credentials) =>  {
         const isAuthenticated = connection.authenticate(credentials);
         loader.setLoading(true);
         if ( isAuthenticated  ) {
@@ -28,7 +24,6 @@ export default function useLogin () {
             //     navigate("dashboard");
             // }, loadTime);
             loader.setLoading(false);
-
         }else {
             setTimeout(() => {
                 loader.setLoading(false);

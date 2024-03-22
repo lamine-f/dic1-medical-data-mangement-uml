@@ -5,20 +5,17 @@ import toast from "react-hot-toast";
 import {useEffect} from "react";
 
 export default function useLogout () {
-
     const connection = useConnectionContext();
     const loader = useLoaderContext();
     const loadTime = 500;
     const navigate = useNavigate();
-
-    return function ()  {
+    return  () =>  {
         connection.unauthenticate();
         loader.setLoading(true);
         setTimeout(() => {
             loader.setLoading(false);
             navigate("");
         }, loadTime);
-
     }
 
 }

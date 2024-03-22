@@ -1,4 +1,4 @@
-import {useConnectionContext} from "../_hooks/useConnection";
+import {useConnectionContext} from "../../_hooks/useConnection";
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 

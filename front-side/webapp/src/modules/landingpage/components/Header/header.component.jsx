@@ -1,8 +1,8 @@
 import styles from "./header.module.css"
 
-import logos_g14 from "../../../landingpage2.module/static/images/Logos_g14.png";
-import logos_g15 from "../../../landingpage2.module/static/images/Logos_g15.png";
-import logos_g16 from "../../../landingpage2.module/static/images/Logos_g16.png";
+import logos_g14 from "../../../landingpage2/static/images/Logos_g14.png";
+import logos_g15 from "../../../landingpage2/static/images/Logos_g15.png";
+import logos_g16 from "../../../landingpage2/static/images/Logos_g16.png";
 import {Link} from "react-router-dom";
 export default function HeaderComponent () {
     return <header className={styles.header} >

@@ -1,5 +1,4 @@
 import {useConnectionContext} from "./useConnection";
-
 export default function useGenerateName () {
     const connection = useConnectionContext()
     let title = "";
@@ -13,8 +12,6 @@ export default function useGenerateName () {
             break;
         default:
             title = "Docteur";
-
     }
-
     return title + " " + name.firstName + " " + name.lastName;
 }

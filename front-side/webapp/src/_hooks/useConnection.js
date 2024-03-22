@@ -1,6 +1,5 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import {getTokenFromLocalStorage, removeTokenFromLocalStorage, saveTokenToLocalStorage} from "./useLocalStorage";
-import {useNavigate} from "react-router-dom";
 import {users} from "../bd";
 
 const isMatch = (credentials1,credentials2 ) => {
@@ -23,7 +22,6 @@ const isMatch = (credentials1,credentials2 ) => {
 const ConnectionContext = createContext({user:{role:"", name: {}, id:0, isConnected: false}, authenticate: () => {} , unauthenticate:() => {}}, );
 export const ConnectionProvider = ({ children }) => {
     const [user, setUser] = useState({role:"", name: {}, id:0, isConnected: false});
-
     useEffect(() => {
         const token = getTokenFromLocalStorage();
         setUser({...token})
@@ -42,7 +40,6 @@ export const ConnectionProvider = ({ children }) => {
         setUser(prevState => ({...newAuthenticate}));
         return true;
     }
-
     const unauthenticate = () => {
         setUser({role:"", name: {}, id:0, isConnected: false});
         removeTokenFromLocalStorage();
@@ -53,7 +50,6 @@ export const ConnectionProvider = ({ children }) => {
         </ConnectionContext.Provider>
     );
 };
-
 export const useConnectionContext = () => {
     const context = useContext(ConnectionContext);
     if (!context) throw new Error('useConnection must be used within a DisplayContext');

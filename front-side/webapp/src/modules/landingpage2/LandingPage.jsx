@@ -5,7 +5,7 @@ import logos_g15 from "./static/images/Logos_g15.png"
 import logos_g16 from "./static/images/Logos_g16.png"
 import Login from "./components/Login/Login.component";
 import {useEffect, useState} from "react";
-import PrimaryButton from "../../_shared_components/PrimaryButton/PrimaryButton.component";
+import PrimaryButton from "../../sharedComponents/PrimaryButton/PrimaryButton.component";
 import toast from "react-hot-toast";
 export default function LandingPage () {
     const [login, setLogin] = useState(false)
