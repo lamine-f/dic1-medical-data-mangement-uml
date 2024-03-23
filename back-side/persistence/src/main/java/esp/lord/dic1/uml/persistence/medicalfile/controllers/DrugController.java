@@ -29,19 +29,6 @@ public class DrugController {
         }
     }
 
-//    @GetMapping( value = {"", "preinscrptions/{id}"}, produces = "application/json")
-//    public ResponseEntity<Map<String, Object>> getDrugOfPreinscription(
-//            @PathVariable(required = true, name = "id") Integer preinscrptionId
-//    ) {
-//        if ( id == null )
-//            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.drugService.getDrugs() ));
-//        try {
-//            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.drugService.getDrugsOfPreinscription(id)));
-//        } catch (PreinscriptionNotFoundException e) {
-//            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
-//        }
-//    }
-
     @PutMapping(value = "" , produces = "application/json")
     public ResponseEntity<Map<String, Object>> addDrug (
             @RequestBody( required = true) DrugDto drugDto
@@ -49,6 +36,31 @@ public class DrugController {
         Drug drug = this.drugService.create(drugDto);
         return ResponseEntity.ok().body(Map.of("message", "success", "data", DrugDto.toDrugDto(drug)));
     }
+
+    @PatchMapping(value = "{drugId}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> modifyDrug (
+            @PathVariable(name = "drugId", required = true) Integer drugId,
+            @RequestBody(required = true) DrugDto drugDto
+    ) {
+        try {
+            Drug drug = this.drugService.modify(drugDto, drugId);
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", DrugDto.toDrugDto(drug)));
+        } catch (DrugNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
+    @DeleteMapping( value = "{id}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> deleteDrug(
+            @PathVariable(required = true, name = "id") Integer id
+    ) {
+        try {
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.drugService.delete(id)));
+        } catch (DrugNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
 
     @PatchMapping(value = "{drugId}/{preinscriptionId}", produces = "application/json")
     public ResponseEntity<Map<String, Object>> addDrugToPreinscription (
@@ -62,4 +74,17 @@ public class DrugController {
             return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
         }
     }
+
+    @DeleteMapping( value = "{drugId}/{preinscriptionId}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> deleteDrugOfPreinscription(
+            @PathVariable(required = true, name = "drugId") Integer drugId,
+            @PathVariable(required = true, name = "preinscriptionId") Integer preinscriptionId
+    ) {
+        try {
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.drugService.deletePreinscription(drugId, preinscriptionId)));
+        } catch (PreinscriptionNotFoundException | DrugNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
 }

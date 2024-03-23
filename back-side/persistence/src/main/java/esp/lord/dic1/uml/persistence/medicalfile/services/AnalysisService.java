@@ -4,6 +4,7 @@ import esp.lord.dic1.uml.persistence.medicalfile.dtos.AnalysisDto;
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.ConsultationSheetDto;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.Analysis;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.ConsultationSheet;
+import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.MedicalFileNotFoundException;
 
@@ -13,4 +14,8 @@ public interface AnalysisService {
     public List<AnalysisDto> getAnalysis ();
     public List<AnalysisDto> getAnalysisOfConsultationSheet (Integer id) throws ConsultationSheetNotFoundException;
     public Analysis create(AnalysisDto analysisDto, Integer consultationSheetId) throws ConsultationSheetNotFoundException;
+
+    Analysis modify(AnalysisDto analysisDto, Integer id) throws AnalysisNotFoundException;
+
+    Boolean delete(Integer id) throws AnalysisNotFoundException;
 }

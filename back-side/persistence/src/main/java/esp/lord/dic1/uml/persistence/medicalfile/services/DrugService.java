@@ -15,4 +15,10 @@ public interface DrugService {
     List<DrugDto> getDrugsOfPreinscription (Integer id) throws PreinscriptionNotFoundException;
     Drug create(DrugDto drugDto);
     Drug add(Integer drugId, Integer preinscriptionId) throws PreinscriptionNotFoundException, DrugNotFoundException;
+
+    Drug modify(DrugDto drugDto, Integer drugId) throws DrugNotFoundException;
+
+    Boolean delete(Integer id) throws DrugNotFoundException;
+
+    Boolean deletePreinscription(Integer drugId, Integer preinscriptionId) throws PreinscriptionNotFoundException, DrugNotFoundException;
 }

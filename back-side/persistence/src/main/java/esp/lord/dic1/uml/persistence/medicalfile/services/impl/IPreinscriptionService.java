@@ -3,6 +3,7 @@ import esp.lord.dic1.uml.persistence.medicalfile.dtos.PreinscriptionDto;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.ConsultationSheet;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.Preinscription;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNotFoundException;
+import esp.lord.dic1.uml.persistence.medicalfile.exceptions.PreinscriptionNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.repositories.PreinscriptionRepository;
 import esp.lord.dic1.uml.persistence.medicalfile.services.PreinscriptionService;
 import org.springframework.stereotype.Service;
@@ -12,14 +13,16 @@ import java.util.List;
 
 @Service
 public class IPreinscriptionService implements PreinscriptionService {
-    private PreinscriptionRepository preinscriptionRepository;
-    private GetEntity getEntity;
+    private final PreinscriptionRepository preinscriptionRepository;
+    private final GetEntity getEntity;
+    private final DeleteEntity deleteEntity;
     public IPreinscriptionService(
             PreinscriptionRepository preinscriptionRepository,
-            GetEntity getEntity
-            ) {
+            GetEntity getEntity,
+            DeleteEntity deleteEntity) {
         this.preinscriptionRepository = preinscriptionRepository;
         this.getEntity = getEntity;
+        this.deleteEntity = deleteEntity;
     }
     public List<PreinscriptionDto> PreinscritionsToDtos(List<Preinscription> preinscriptions) {
         return preinscriptions.stream().map(PreinscriptionDto::toPreinscriptionDto).toList();
@@ -43,5 +46,21 @@ public class IPreinscriptionService implements PreinscriptionService {
         preinscriptionSaving.setDrugs(new ArrayList<>());
         Preinscription preinscriptionSaved = this.preinscriptionRepository.save(preinscriptionSaving);
         return preinscriptionSaved;
+    }
+
+    @Override
+    public Preinscription modify(PreinscriptionDto preinscriptionDto, Integer preinscriptionId) throws PreinscriptionNotFoundException {
+        Preinscription preinscriptionModifying = this.getEntity.getPreinscription(preinscriptionId);
+        Preinscription preinscriptionSaving = PreinscriptionDto.toPreinscription(preinscriptionDto);
+
+        preinscriptionSaving.setId( preinscriptionModifying.getId() );
+        preinscriptionSaving.setConsultationSheet( preinscriptionModifying.getConsultationSheet() );
+        return this.preinscriptionRepository.save(preinscriptionSaving);
+    }
+
+    @Override
+    public Boolean delete(Integer id) throws PreinscriptionNotFoundException {
+        this.deleteEntity.deletePreinscription(id);
+        return true;
     }
 }

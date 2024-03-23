@@ -1,6 +1,7 @@
 package esp.lord.dic1.uml.persistence.medicalfile.controllers;
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.AnalysisFileDto;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.AnalysisFile;
+import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisFileNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.MedicalFileNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.services.AnalysisFileService;
@@ -12,7 +13,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("medicalFiles/consultationSheets/analysisFiles")
 public class AnalysisFileController {
-    private AnalysisFileService analysisFileService;
+    private final AnalysisFileService analysisFileService;
     public AnalysisFileController(AnalysisFileService analysisFileService) {
         this.analysisFileService = analysisFileService;
     }
@@ -29,6 +30,17 @@ public class AnalysisFileController {
         }
     }
 
+    @DeleteMapping( value = {"", "{id}"}, produces = "application/json")
+    public ResponseEntity<Map<String, Object>> deleteAnalysisFile(
+            @PathVariable(required = true, name = "id") Integer id
+    ) {
+        try {
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.analysisFileService.delete(id)));
+        } catch (AnalysisFileNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
     @PutMapping(value ="{id}", produces = "application/json")
     public ResponseEntity<Map<String, Object>> addAnalysisFile (
             @RequestBody(required = true) AnalysisFileDto analysisFileDto,
@@ -38,6 +50,19 @@ public class AnalysisFileController {
             AnalysisFile analysisFile = this.analysisFileService.create(analysisFileDto, analysisFileId);
             return ResponseEntity.ok().body(Map.of("message", "success", "data", AnalysisFileDto.toAnalysisFileDto(analysisFile)));
         } catch (AnalysisNotFoundException | MedicalFileNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
+    @PatchMapping(value ="{id}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> modifyAnalysisFile (
+            @RequestBody(required = true) AnalysisFileDto analysisFileDto,
+            @PathVariable(name = "id", required = true) Integer analysisFileId
+    ) {
+        try {
+            AnalysisFile analysisFile = this.analysisFileService.modify(analysisFileDto, analysisFileId);
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", AnalysisFileDto.toAnalysisFileDto(analysisFile)));
+        } catch (AnalysisFileNotFoundException e) {
             return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
         }
     }

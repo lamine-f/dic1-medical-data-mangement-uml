@@ -2,6 +2,7 @@ package esp.lord.dic1.uml.persistence.medicalfile.controllers;
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.PreinscriptionDto;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.Preinscription;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNotFoundException;
+import esp.lord.dic1.uml.persistence.medicalfile.exceptions.PreinscriptionNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.services.PreinscriptionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,17 @@ public class PreinscriptionController {
         }
     }
 
+    @DeleteMapping( value = "{id}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> deletePreinscription(
+            @PathVariable(required = true, name = "id") Integer id
+    ) {
+        try {
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.preinscriptionService.delete(id)));
+        } catch (PreinscriptionNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
     @PutMapping(value ="{id}", produces = "application/json")
     public ResponseEntity<Map<String, Object>> addPreinscription (
             @RequestBody(required = true) PreinscriptionDto preinscriptionDto,
@@ -37,6 +49,20 @@ public class PreinscriptionController {
             Preinscription preinscription = this.preinscriptionService.create(preinscriptionDto, consultionSheetId);
             return ResponseEntity.ok().body(Map.of("message", "success", "data", PreinscriptionDto.toPreinscriptionDto(preinscription)));
         } catch (ConsultationSheetNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
+    @PatchMapping(value ="{id}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> modifyPreinscription (
+            @RequestBody(required = true) PreinscriptionDto preinscriptionDto,
+            @PathVariable(name = "id", required = true) Integer preinscriptionId
+    ) {
+        try {
+            Preinscription preinscription = this.preinscriptionService.modify(preinscriptionDto, preinscriptionId);
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", PreinscriptionDto.toPreinscriptionDto(preinscription)));
+
+        } catch (PreinscriptionNotFoundException e) {
             return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
         }
     }

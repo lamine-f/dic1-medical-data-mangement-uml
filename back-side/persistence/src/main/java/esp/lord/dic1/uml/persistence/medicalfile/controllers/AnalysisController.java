@@ -1,14 +1,10 @@
 package esp.lord.dic1.uml.persistence.medicalfile.controllers;
 
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.AnalysisDto;
-import esp.lord.dic1.uml.persistence.medicalfile.dtos.AnalysisFileDto;
-import esp.lord.dic1.uml.persistence.medicalfile.dtos.ConsultationSheetDto;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.Analysis;
-import esp.lord.dic1.uml.persistence.medicalfile.entities.ConsultationSheet;
+import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNotFoundException;
-import esp.lord.dic1.uml.persistence.medicalfile.exceptions.MedicalFileNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.services.AnalysisService;
-import esp.lord.dic1.uml.persistence.medicalfile.services.ConsultationSheetService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +14,7 @@ import java.util.Map;
 @RequestMapping("medicalFiles/consultationSheets/analyses")
 public class AnalysisController {
 
-    private AnalysisService analysisService;
+    private final AnalysisService analysisService;
     public AnalysisController(AnalysisService analysisService) {
         this.analysisService = analysisService;
     }
@@ -35,6 +31,18 @@ public class AnalysisController {
         }
     }
 
+    @DeleteMapping( value = "{id}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> deleteAnalyses(
+            @PathVariable(required = true, name = "id") Integer id
+    ) {
+        try {
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.analysisService.delete(id)));
+        } catch (AnalysisNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
+
     @PutMapping(value ="{id}", produces = "application/json")
     public ResponseEntity<Map<String, Object>> addConsultationSheet (
             @RequestBody(required = true) AnalysisDto analysisDto,
@@ -44,6 +52,20 @@ public class AnalysisController {
             Analysis analysis = this.analysisService.create(analysisDto, consultationSheetId);
             return ResponseEntity.ok().body(Map.of("message", "success", "data", AnalysisDto.toAnalysisDto(analysis)));
         } catch (ConsultationSheetNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
+    }
+
+    @PatchMapping(value ="{id}", produces = "application/json")
+    public ResponseEntity<Map<String, Object>> modifyConsultationSheet (
+            @RequestBody(required = true) AnalysisDto analysisDto,
+            @PathVariable(name = "id", required = true) Integer id
+    ) {
+        Analysis analysis = null;
+        try {
+            analysis = this.analysisService.modify(analysisDto, id);
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", AnalysisDto.toAnalysisDto(analysis)));
+        } catch (AnalysisNotFoundException e) {
             return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
         }
     }

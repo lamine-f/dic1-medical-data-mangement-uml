@@ -3,6 +3,7 @@ package esp.lord.dic1.uml.persistence.medicalfile.services.impl;
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.AnalysisDto;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.Analysis;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.ConsultationSheet;
+import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.repositories.AnalysisRepository;
 import esp.lord.dic1.uml.persistence.medicalfile.services.AnalysisService;
@@ -14,14 +15,16 @@ import java.util.List;
 @Service
 public class IAnalysisService implements AnalysisService {
 
-    private AnalysisRepository analysisRepository;
-    private GetEntity getEntity;
+    private final AnalysisRepository analysisRepository;
+    private final GetEntity getEntity;
+    private final DeleteEntity deleteEntity;
     public IAnalysisService(
             AnalysisRepository analysisRepository,
-            GetEntity getEntity
-            ) {
+            GetEntity getEntity,
+            DeleteEntity deleteEntity) {
         this.analysisRepository = analysisRepository;
         this.getEntity = getEntity;
+        this.deleteEntity = deleteEntity;
     }
 
     public List<AnalysisDto> analysisToModels(List<Analysis> analysiss) {
@@ -49,5 +52,20 @@ public class IAnalysisService implements AnalysisService {
         analysisSaving.setConsultationSheet( consultationSheet );
         Analysis analysisSaved = analysisRepository.save(analysisSaving);
         return analysisSaved;
+    }
+
+    @Override
+    public Analysis modify(AnalysisDto analysisDto, Integer id) throws AnalysisNotFoundException {
+        Analysis analysisModifying = this.getEntity.getAnalysis(id);
+        Analysis analysisSaving = AnalysisDto.toAnalysis(analysisDto);
+        analysisSaving.setId( analysisModifying.getId() );
+        analysisSaving.setConsultationSheet( analysisModifying.getConsultationSheet() );
+        return this.analysisRepository.save(analysisSaving);
+    }
+
+    @Override
+    public Boolean delete(Integer id) throws AnalysisNotFoundException {
+        this.deleteEntity.deleteAnalysis(id);
+        return true;
     }
 }

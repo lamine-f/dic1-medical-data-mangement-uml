@@ -3,6 +3,7 @@ package esp.lord.dic1.uml.persistence.medicalfile.services.impl;
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.AnalysisFileDto;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.Analysis;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.AnalysisFile;
+import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisFileNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.repositories.AnalysisFileRepository;
 import esp.lord.dic1.uml.persistence.medicalfile.services.AnalysisFileService;
@@ -13,15 +14,17 @@ import java.util.List;
 @Service
 public class IAnalysisFileService implements AnalysisFileService {
 
-    private AnalysisFileRepository analysisFileRepository;
-    private GetEntity getEntity;
+    private final AnalysisFileRepository analysisFileRepository;
+    private final GetEntity getEntity;
+    private final DeleteEntity deleteEntity;
 
     public IAnalysisFileService(
             AnalysisFileRepository analysisFileRepository,
-            GetEntity getEntity
-            ) {
+            GetEntity getEntity,
+            DeleteEntity deleteEntity) {
         this.analysisFileRepository = analysisFileRepository;
         this.getEntity = getEntity;
+        this.deleteEntity = deleteEntity;
     }
 
     public List<AnalysisFileDto> AnalysisFilesToDtos(List<AnalysisFile> analysisFiles) {
@@ -48,5 +51,20 @@ public class IAnalysisFileService implements AnalysisFileService {
         analysisFileSaving.setAnalysis( analysis );
         AnalysisFile analysisFileSaved = analysisFileRepository.save(analysisFileSaving);
         return analysisFileSaved;
+    }
+
+    @Override
+    public AnalysisFile modify(AnalysisFileDto analysisFileDto, Integer analysisFileId) throws AnalysisFileNotFoundException {
+        AnalysisFile analysisFileModifying = this.getEntity.getAnalysisFile(analysisFileId);
+        AnalysisFile analysisFileSaving = AnalysisFileDto.toAnalysisFile(analysisFileDto);
+        analysisFileSaving.setAnalysis( analysisFileModifying.getAnalysis() );
+        analysisFileSaving.setId( analysisFileModifying.getId() );
+        return this.analysisFileRepository.save(analysisFileSaving);
+    }
+
+    @Override
+    public Boolean delete(Integer id) throws AnalysisFileNotFoundException {
+        this.deleteEntity.deleteAnalysisFile(id);
+        return true;
     }
 }

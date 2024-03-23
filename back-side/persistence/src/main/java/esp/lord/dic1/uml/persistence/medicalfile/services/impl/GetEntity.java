@@ -12,19 +12,21 @@ public class GetEntity {
     private final AnalysisRepository analysisRepository;
     private final PreinscriptionRepository preinscriptionRepository;
     private final DrugRepository drugRepository;
+    private final AnalysisFileRepository analysisFileRepository;
 
     public GetEntity(
             MedicalFileRepository medicalFileRepository,
             ConsultationSheetRepository consultationSheetRepository,
             AnalysisRepository analysisRepository,
             PreinscriptionRepository preinscriptionRepository,
-            DrugRepository drugRepository
-    ) {
+            DrugRepository drugRepository,
+            AnalysisFileRepository analysisFileRepository) {
         this.medicalFileRepository = medicalFileRepository;
         this.consultationSheetRepository = consultationSheetRepository;
         this.analysisRepository = analysisRepository;
         this.preinscriptionRepository = preinscriptionRepository;
         this.drugRepository = drugRepository;
+        this.analysisFileRepository = analysisFileRepository;
     }
 
     public MedicalFile getMedicalFile (Integer medicalFileId) throws MedicalFileNotFoundException {
@@ -46,6 +48,13 @@ public class GetEntity {
         if ( analysis == null )
             throw new AnalysisNotFoundException("analysis not found");
         return analysis;
+    }
+
+    public AnalysisFile getAnalysisFile (Integer analysisFileId) throws AnalysisFileNotFoundException {
+        AnalysisFile analysisFile = this.analysisFileRepository.findById(analysisFileId).orElse(null);
+        if ( analysisFile == null )
+            throw new AnalysisFileNotFoundException("analysis file not found exception");
+        return analysisFile;
     }
 
     public Preinscription getPreinscription (Integer preinscriptionId) throws PreinscriptionNotFoundException {
