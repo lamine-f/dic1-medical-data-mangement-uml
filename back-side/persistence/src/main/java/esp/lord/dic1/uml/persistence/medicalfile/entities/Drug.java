@@ -6,15 +6,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @ToString @NoArgsConstructor
+import java.util.Date;
+import java.util.List;
+
+@NoArgsConstructor @Getter @Setter @ToString
 @Entity
-public class AnalysisFile {
+public class Drug {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String title;
-    String fileUrl;
-    String specifics;
-    @ManyToOne
-    Analysis analysis;
+    String designation ;
+    Date dateAcquisition;
+    Date dateExpiry;
+    @ManyToMany
+    List<Preinscription> preinscriptions;
 }

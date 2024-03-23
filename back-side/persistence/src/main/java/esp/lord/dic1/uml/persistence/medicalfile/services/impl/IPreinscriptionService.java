@@ -6,6 +6,8 @@ import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNot
 import esp.lord.dic1.uml.persistence.medicalfile.repositories.PreinscriptionRepository;
 import esp.lord.dic1.uml.persistence.medicalfile.services.PreinscriptionService;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,6 +40,7 @@ public class IPreinscriptionService implements PreinscriptionService {
         Preinscription preinscriptionSaving = PreinscriptionDto.toPreinscription(preinscriptionDto);
         ConsultationSheet consultationSheet = this.getEntity.getConsultationSheet(consultationSheetId);
         preinscriptionSaving.setConsultationSheet( consultationSheet );
+        preinscriptionSaving.setDrugs(new ArrayList<>());
         Preinscription preinscriptionSaved = this.preinscriptionRepository.save(preinscriptionSaving);
         return preinscriptionSaved;
     }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("medicalFiles/consultationSheet/analysisFile")
+@RequestMapping("medicalFiles/consultationSheets/analysisFiles")
 public class AnalysisFileController {
     private AnalysisFileService analysisFileService;
     public AnalysisFileController(AnalysisFileService analysisFileService) {

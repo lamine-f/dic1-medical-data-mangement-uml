@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @NoArgsConstructor @Getter @Setter @ToString
 @Entity
 public class Preinscription {
@@ -16,4 +18,6 @@ public class Preinscription {
     String period;
     @ManyToOne
     ConsultationSheet consultationSheet;
+    @ManyToMany
+    List<Drug> drugs;
 }

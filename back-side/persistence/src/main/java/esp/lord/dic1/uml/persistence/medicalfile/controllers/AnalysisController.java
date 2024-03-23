@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("medicalFiles/consultationSheet/analysis")
+@RequestMapping("medicalFiles/consultationSheets/analyses")
 public class AnalysisController {
 
     private AnalysisService analysisService;

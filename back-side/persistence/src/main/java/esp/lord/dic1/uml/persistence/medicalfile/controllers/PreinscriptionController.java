@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("medicalFiles/consultationSheet/preinscription")
+@RequestMapping("medicalFiles/consultationSheets/preinscriptions")
 public class PreinscriptionController {
-    private PreinscriptionService preinscriptionService;
+    private final PreinscriptionService preinscriptionService;
     public PreinscriptionController(PreinscriptionService preinscriptionService) {
         this.preinscriptionService = preinscriptionService;
     }
