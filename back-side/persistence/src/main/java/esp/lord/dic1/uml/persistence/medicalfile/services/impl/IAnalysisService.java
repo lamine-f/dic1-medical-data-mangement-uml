@@ -5,7 +5,6 @@ import esp.lord.dic1.uml.persistence.medicalfile.entities.Analysis;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.ConsultationSheet;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.repositories.AnalysisRepository;
-import esp.lord.dic1.uml.persistence.medicalfile.repositories.ConsultationSheetRepository;
 import esp.lord.dic1.uml.persistence.medicalfile.services.AnalysisService;
 import org.springframework.stereotype.Service;
 
@@ -16,25 +15,17 @@ import java.util.List;
 public class IAnalysisService implements AnalysisService {
 
     private AnalysisRepository analysisRepository;
-    private ConsultationSheetRepository consultationSheetRepository;
-
+    private GetEntity getEntity;
     public IAnalysisService(
             AnalysisRepository analysisRepository,
-            ConsultationSheetRepository consultationSheetRepository
+            GetEntity getEntity
             ) {
         this.analysisRepository = analysisRepository;
-        this.consultationSheetRepository = consultationSheetRepository;
+        this.getEntity = getEntity;
     }
 
     public List<AnalysisDto> analysisToModels(List<Analysis> analysiss) {
         return analysiss.stream().map(AnalysisDto::toAnalysisDto).toList();
-    }
-
-    public ConsultationSheet getConsultationSheet (Integer consultationSheetId) throws ConsultationSheetNotFoundException {
-        ConsultationSheet consultationSheet = this.consultationSheetRepository.findById(consultationSheetId).orElse(null);
-        if ( consultationSheet == null )
-            throw new ConsultationSheetNotFoundException("consultation sheet file not found");
-        return consultationSheet;
     }
 
     @Override
@@ -45,7 +36,7 @@ public class IAnalysisService implements AnalysisService {
 
     @Override
     public List<AnalysisDto> getAnalysisOfConsultationSheet(Integer id) throws ConsultationSheetNotFoundException {
-        ConsultationSheet consultationSheet = this.getConsultationSheet(id);
+        ConsultationSheet consultationSheet = this.getEntity.getConsultationSheet(id);
         List<Analysis> analysis = this.analysisRepository.findByConsultationSheet(consultationSheet);
         return this.analysisToModels(analysis);
     }
@@ -54,7 +45,7 @@ public class IAnalysisService implements AnalysisService {
     public Analysis create(AnalysisDto analysisDto, Integer consultationSheetId) throws ConsultationSheetNotFoundException {
         Analysis analysisSaving = AnalysisDto.toAnalysis(analysisDto);
         analysisSaving.setAnalysisFiles(new ArrayList<>());
-        ConsultationSheet consultationSheet = this.getConsultationSheet(consultationSheetId);
+        ConsultationSheet consultationSheet = this.getEntity.getConsultationSheet(consultationSheetId);
         analysisSaving.setConsultationSheet( consultationSheet );
         Analysis analysisSaved = analysisRepository.save(analysisSaving);
         return analysisSaved;

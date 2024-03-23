@@ -9,6 +9,5 @@ import java.util.List;
 
 @RepositoryRestResource(path = "analysisfiles")
 public interface AnalysisFileRepository extends JpaRepository<AnalysisFile, Integer> {
-
-    public List<AnalysisFile> findByAnalysis(Analysis analysis);
+    List<AnalysisFile> findByAnalysis(Analysis analysis);
 }

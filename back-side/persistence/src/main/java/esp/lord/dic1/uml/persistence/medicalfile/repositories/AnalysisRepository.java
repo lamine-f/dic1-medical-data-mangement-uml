@@ -9,6 +9,5 @@ import java.util.List;
 
 @RepositoryRestResource(path = "analyzes")
 public interface AnalysisRepository extends JpaRepository<Analysis, Integer> {
-
-    public List<Analysis> findByConsultationSheet(ConsultationSheet consultationSheet);
+    List<Analysis> findByConsultationSheet(ConsultationSheet consultationSheet);
 }

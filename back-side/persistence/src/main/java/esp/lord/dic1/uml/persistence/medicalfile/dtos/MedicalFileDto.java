@@ -5,14 +5,12 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @NoArgsConstructor @AllArgsConstructor @ToString @Setter @Getter
 public class MedicalFileDto implements Serializable {
     Integer fileNumber;
     Date creationDate;
     Date modificationDate;
-
 
     public static MedicalFileDto toMedicalFileDto (MedicalFile medicalFile) {
         MedicalFileDto medicalFileDto = new MedicalFileDto();

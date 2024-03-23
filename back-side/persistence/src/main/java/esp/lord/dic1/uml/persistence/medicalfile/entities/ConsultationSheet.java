@@ -19,4 +19,6 @@ public class ConsultationSheet {
     MedicalFile medicalFile;
     @OneToMany(fetch = FetchType.LAZY)
     List<Analysis> analyzes;
+    @OneToMany(fetch = FetchType.LAZY)
+    List<Preinscription> preinscriptions;
 }
