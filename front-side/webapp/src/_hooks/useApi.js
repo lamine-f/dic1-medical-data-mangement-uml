@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-const useAxiosFunction = () => {
+const useApiFunction = () => {
     const [response, setResponse] = useState(null);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -31,4 +31,4 @@ const useAxiosFunction = () => {
     }, [controller])
     return [response, error, loading, axiosFetch];
 }
-export default useAxiosFunction;
+export default useApiFunction;

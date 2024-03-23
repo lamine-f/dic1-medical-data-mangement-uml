@@ -4,22 +4,15 @@ import Button from "./Button/Button";
 import {useState} from "react";
 import {useConnectionContext} from "../../../../_hooks/useConnection";
 import useGenerateName from "../../../../_hooks/useGenerateName";
-export default function SideBar() {
+export default function SideBar({children, headerText, footerText, width}) {
 
-    const name = useGenerateName();
 
-    return <div className={styles.wrapper} >
+    return <div className={styles.wrapper} style={ width ? {width}:{} }  >
         <div className={styles.SideBarHeader} >
-            <h2>Navigation</h2>
-            <span>X</span>
+            <h2>{headerText}</h2>
+            {/*<span>X</span>*/}
         </div>
-        <Buttons >
-            <Button isActive={true} route={""} value={"Acceuil"}/>
-            <Button route={"patient"} value={"Patient"}/>
-            <Button route={"meets"} value={"Rendez vous"}/>
-            <Button route={"stats"} value={"Statistiques"}/>
-            <Button route={"logout"} value={"Déconnexion"}/>
-        </Buttons>
-        <div style={{position: "absolute", color: "black", bottom: "10px", left: "10px", fontWeight: "bold"}}  >{name}</div>
+        {children}
+        <div style={{position: "absolute", color: "black", bottom: "10px", left: "10px", fontWeight: "bold"}}  >{footerText}</div>
     </div>
 }
