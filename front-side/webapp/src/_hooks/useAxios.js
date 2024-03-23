@@ -1,7 +1,5 @@
 import {useEffect, useState} from "react";
-
 const useAxiosFunction = () => {
-
     const [response, setResponse] = useState(null);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -10,20 +8,19 @@ const useAxiosFunction = () => {
         setLoading(true);
         const ctrl = new AbortController();
         setController(ctrl);
-
         const {
             axiosInstance,
             method,
             url,
             requestConfig = []
         } = configObj;
-
-        await  axiosInstance[method.toLowerCase()](url,
+        await  axiosInstance[method.toLowerCase()](
+            url,
             ...requestConfig
         ).then((res) => {
             setResponse(res.data);
         }).catch((err) => {
-            setError(err?.response?.data || "Error Server");
+            setError(err?.response?.data || "server error");
         }).finally (() => {
             setLoading(false);
         })

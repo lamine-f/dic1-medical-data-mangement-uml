@@ -15,7 +15,6 @@ public class AnalysisFile {
     String title;
     String fileUrl;
     String specifics;
-
     @ManyToOne
     Analysis analysis;
 }

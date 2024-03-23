@@ -5,7 +5,6 @@ import esp.lord.dic1.uml.persistence.medicalfile.entities.Analysis;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.AnalysisFile;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.repositories.AnalysisFileRepository;
-import esp.lord.dic1.uml.persistence.medicalfile.repositories.AnalysisRepository;
 import esp.lord.dic1.uml.persistence.medicalfile.services.AnalysisFileService;
 import org.springframework.stereotype.Service;
 
@@ -15,25 +14,18 @@ import java.util.List;
 public class IAnalysisFileService implements AnalysisFileService {
 
     private AnalysisFileRepository analysisFileRepository;
-    private AnalysisRepository analysisRepository;
+    private GetEntity getEntity;
 
     public IAnalysisFileService(
             AnalysisFileRepository analysisFileRepository,
-            AnalysisRepository analysisRepository
+            GetEntity getEntity
             ) {
         this.analysisFileRepository = analysisFileRepository;
-        this.analysisRepository = analysisRepository;
+        this.getEntity = getEntity;
     }
 
     public List<AnalysisFileDto> AnalysisFilesToDtos(List<AnalysisFile> analysisFiles) {
         return analysisFiles.stream().map(AnalysisFileDto::toAnalysisFileDto).toList();
-    }
-
-    public Analysis getAnalysis (Integer AnalysisId) throws AnalysisNotFoundException {
-        Analysis analysis = this.analysisRepository.findById(AnalysisId).orElse(null);
-        if ( analysis == null )
-            throw new AnalysisNotFoundException("analysis file not found");
-        return analysis;
     }
 
     @Override
@@ -44,7 +36,7 @@ public class IAnalysisFileService implements AnalysisFileService {
 
     @Override
     public List<AnalysisFileDto> getAnalysisFilesOfAnalysis(Integer id) throws AnalysisNotFoundException {
-        Analysis analysis = this.getAnalysis(id);
+        Analysis analysis = this.getEntity.getAnalysis(id);
         List<AnalysisFile> analysisFiles = this.analysisFileRepository.findByAnalysis(analysis);
         return this.AnalysisFilesToDtos(analysisFiles);
     }
@@ -52,7 +44,7 @@ public class IAnalysisFileService implements AnalysisFileService {
     @Override
     public AnalysisFile create(AnalysisFileDto analysisFileDto, Integer analysisId) throws AnalysisNotFoundException {
         AnalysisFile analysisFileSaving = AnalysisFileDto.toAnalysisFile(analysisFileDto);
-        Analysis analysis = this.getAnalysis(analysisId);
+        Analysis analysis = this.getEntity.getAnalysis(analysisId);
         analysisFileSaving.setAnalysis( analysis );
         AnalysisFile analysisFileSaved = analysisFileRepository.save(analysisFileSaving);
         return analysisFileSaved;

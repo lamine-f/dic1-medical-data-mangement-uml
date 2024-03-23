@@ -9,6 +9,5 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface ConsultationSheetRepository extends JpaRepository<ConsultationSheet, Integer> {
-
-    public List<ConsultationSheet> findByMedicalFile (MedicalFile medicalFile);
+    List<ConsultationSheet> findByMedicalFile (MedicalFile medicalFile);
 }
