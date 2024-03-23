@@ -9,7 +9,310 @@
 </head>
 <body>
     <div class="champ">
+        <div class="biologie">
+            <h3>Signes Paracliniques :</h3>
+            <p>Biologie :</p>
+            <div class="bio">
+                <label for="bio">Hémoglobinémie :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">GB :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Plaquettes :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">VGM :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">CCMH :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">TCMH :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">CRP :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Urée :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Créatininémie :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">NT pro BNP :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Prolactine :</label>
+                <input type="text" placeholder="Saisir ici">
+            </div>
+            <p>Télécoeur :</p>
+            <div>
+                <input type="radio" name="telec" class="yesTelec">
+                <label for="yes">Oui</label>
+                <input type="radio" name="telec" class="noTelec">
+                <label for="no">Non</label>
+            </div>
+        </div>
+        <div class="index1">
+            <label>Index cardiothoracique (en %) :</label>
+            <input type="number" placeholder="__">
+        </div>
+        <div class="index2">
+            <label>Autres Signes :</label>
+            <input type="text" placeholder="A préciser">
+        </div>
+    
+        <div class="ecg">
+            <h3>ECG :</h3>
+            <div>
+                <input type="radio" name="ecg" class="yesEcg">
+                <label for="yes">Oui</label>
+                <input type="radio" name="ecg" class="noEcg">
+                <label for="no">Non</label>
+            </div>
+        </div>
+    
+        <div class="result">
+            <h3>Résultats :</h3>
+            <div>
+                <div>
+                    <input type="checkbox" name="result">
+                    <label for="result">Sinusal</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">HAG</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">Tachycardie</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">HVG</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="result">
+                    <label for="result">Troubles conductifs</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">HAD</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">HVD</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">FA</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">Autres</label>
+                </div>
+            </div>
+        </div>
+    
+        <div class="ett">
+            <h3>ETT :</h3>
+            <div>
+                <input type="radio" name="ett">
+                <label for="yes">Oui</label>
+                <input type="radio" name="ett">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="dtdvg">
+            <h3>DTDVG :</h3>
+            <div>
+                <input type="radio" name="dtdvg">
+                <label for="yes">DTSVG</label>
+                <input type="radio" name="dtdvg">
+                <label for="no">FEVG</label>
+            </div>
+        </div>
+    
+        <div class="epanchement">
+            <h3>Epanchement péricardique :</h3>
+            <div>
+                <input type="radio" name="epanchement">
+                <label for="yes">Oui</label>
+                <input type="radio" name="epanchement">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="fuite">
+            <h3>Fuite valvulaire :</h3>
+            <div>
+                <div>
+                    <input type="checkbox" name="fuite">
+                    <label for="result">Absente</label>
+                    <input type="checkbox" name="fuite">
+                    <label for="result">Mitrale</label>
+                    <input type="checkbox" name="fuite">
+                    <label for="result">Pulmonaire</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="fuite">
+                    <label for="result">Aortique</label>
+                    <input type="checkbox" name="fuite">
+                    <label for="result">Tricuspidienne</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="stenose">
+            <h3>Sténose valvulaire :</h3>
+            <div>
+                <div>
+                    <input type="checkbox" name="stenose">
+                    <label for="result">Absente</label>
+                    <input type="checkbox" name="stenose">
+                    <label for="result">Mitrale</label>
+                    <input type="checkbox" name="stenose">
+                    <label for="result">Pulmonaire</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="stenose">
+                    <label for="result">Aortique</label>
+                    <input type="checkbox" name="stenose">
+                    <label for="result">Tricuspidienne</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="traitment">
+            <h3>Traitement :</h3>
+            <div>
+                <div>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">Diurétique</label>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">Bromocriptine</label>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">Contraception</label>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">IEC</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">Anticoagulants</label>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">Tonicardiaque</label>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">Bétabloquants</label>
+                    <input type="checkbox" name="traitment">
+                    <label for="traitment">Autres</label>
+                </div>
+            </div>
+
+            <div class="modalite">
+                <p>Modalité évolutive en hospitalisation :</p>
+                <div>
+                    <input type="radio" name="modalite" class="yesFavorable">
+                    <label for="yes">Favorable</label>
+                    <input type="radio" name="modalite" class="noFavorable">
+                    <label for="no">Défavorable</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="aspect">
+            <p>Aspects défavorables :</p>
+            <div>
+                <input type="radio" name="aspect" class="compliAspect">
+                <label for="yes">Complications</label>
+                <input type="radio" name="aspect" class="deathAspect">
+                <label for="no">Décès</label>
+            </div>
+        </div>
+
+        <div class="complication">
+            <h3>Type de complications :</h3>
+            <div>
+                <div>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">AVC</label>
+                    <input type="checkbox" name="result">
+                    <label for="result">Péricardite</label>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">IVG</label>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">Insuffisance coronarienne</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">Arthropathie</label>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">IVD</label>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">Accélération Embolique</label>
+                    <input type="checkbox" name="result">
+                    <label for="complication">ICG</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">Néphropathie</label>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">TDR</label>
+                    <input type="checkbox" name="complication">
+                    <label for="complication">Abcès splénique</label>
+                    <input type="checkbox" name="result">
+                    <label for="complication">TDC</label>
+                </div>
+                <div>
+                    <label>Autre :</label>
+                    <input type="text" placeholder="A préciser">
+                </div>
+            </div>
+        </div>
+
+        <div class="death">
+            <label for="">Préciser le délai (en jours) :</label>
+            <input type="number" placeholder="__">
+        </div>
 
     </div>
+
+    <script>
+        //telecoeur
+        let yesTelec = document.querySelector('.yesTelec');
+        let noTelec = document.querySelector('.noTelec');
+        let index1 = document.querySelector('.index1');
+        let index2 = document.querySelector('.index2');
+
+        index1.style.display = 'none';
+        index2.style.display = 'none';
+        yesTelec.addEventListener('click', function(){
+            index1.style.display = 'block';
+            index2.style.display = 'block';
+        });
+        noTelec.addEventListener('click', function(){
+            index1.style.display = 'none';
+            index2.style.display = 'none';
+        });
+
+        //ecg
+        let yesEcg = document.querySelector('.yesEcg');
+        let noEcg = document.querySelector('.noEcg');
+        let result = document.querySelector('.result');
+
+        result.style.display = 'none';
+        yesEcg.addEventListener('click', function(){
+            result.style.display = 'block';
+        });
+        noEcg.addEventListener('click', function(){
+            result.style.display = 'none';
+        });
+
+        //modalite
+        let yesFavorable = document.querySelector('.yesFavorable');
+        let noFavorable = document.querySelector('.noFavorable');
+        let aspect = document.querySelector('.aspect');
+        let complication = document.querySelector('.complication');
+        let death = document.querySelector('.death');
+        let compliAspect = document.querySelector('.compliAspect');
+        let deathAspect = document.querySelector('.deathAspect');
+
+        aspect.style.display = 'none';
+        complication.style.display = 'none';
+        death.style.display = 'none';
+        noFavorable.addEventListener('click', function(){
+            aspect.style.display = 'block';
+        });
+        yesFavorable.addEventListener('click', function(){
+            aspect.style.display = 'none';
+            complication.style.display = 'none';
+            death.style.display = 'none';
+        });
+        compliAspect.addEventListener('click', function(){
+            complication.style.display = 'block';
+            death.style.display = 'none';
+        });
+        deathAspect.addEventListener('click', function(){
+            death.style.display = 'block';
+            complication.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

@@ -3,7 +3,8 @@
 :root{
     --primary--color: #fff;
     --secondary--color: #333;
-    --main--color: rgb(11, 20, 29);
+    /* --main--color: rgb(11, 20, 29); */
+    --main--color: dodgerblue;
     --footer_text--color: #737373;
     --footer--background: #f0f0f0;
 }
@@ -83,23 +84,23 @@ header{
     vertical-align: middle;
     margin-left: 25px;
 }
-#connect{
+.connect{
     text-decoration: none;
     font-size: 17px;
     margin-left: 20px;
     border: 1px solid dodgerblue;
     padding: 5px 10px;
     border-radius: 10px;
-    color: white;
+    color: white !important;
     background-color: dodgerblue;
 }
-#connect:hover{
+.connect:hover{
     border: 1px solid dodgerblue;
-    color: black;
+    color: black !important;
     background-color: white;
 }
-.navbar #connect::before,
-.navbar #connect::after {
+.navbar .connect::before,
+.navbar .connect::after {
     content: none;
 }
 
@@ -242,7 +243,7 @@ header{
     cursor: pointer;
     color: var(--primary--color);
 }
-#option .option_left.active {
+.option .option_left.active {
     background-color: var(--main--color);
 }
 
@@ -300,10 +301,14 @@ h5{
     text-decoration: underline;
 }
 .mail input{
-    padding: 5px 58px;
+    padding: 5px 10px;
     margin: 20px 0px 0px 0px;
     border-radius: 5px;
     border: .5px solid var(--main--color);
+    text-align: center;
+}
+.mail input, textarea{
+    width: 250px;
 }
 textarea{
     border-radius: 5px;
@@ -368,7 +373,7 @@ textarea:focus, .mail input:focus{
 .join_me p:hover{
     color: var(--secondary--color);
 }
-#inline div{
+.contact div{
     display: flex;
     align-items: center;
 }

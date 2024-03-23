@@ -18,6 +18,7 @@ input[type]{
 .champ{
     display: grid;
     place-content: center;
+    padding-top: 50px;
 }
 .champ div{
     margin-bottom: 5%;
@@ -26,22 +27,59 @@ input[type]{
     color: dodgerblue;
     margin-bottom: 20px;
 }
-.medicaux{
-    padding-top: 5%;
+.champ h2{
+    text-align: center;
+    margin-bottom: 50px;
+    color: dodgerblue;
 }
-#nombreDecomp{
+input[type="text"], input[type="number"]{
+    outline: 0.5px solid dodgerblue;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+.champ input[type="text"]{
+    width: 250px;
+    border: none;
+}
+input[type="number"]{
     width: 40px;
     text-align: center;
     padding: 3px;
     border: none;
-    /* border: 0.3px solid dodgerblue; */
     border-radius: 5px;
 }
-#hta{
-    border: none;
-    padding: 3px;
-    border-radius: 5px;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  text-align: center;
 }
-#nombreDecomp, #hta{
-    outline: 0.5px solid dodgerblue;
+.constante div, .bio{
+    display: flex;
+    flex-direction: column;
+}
+.medicaux div{
+    margin-left: 30%;
+}
+div input{
+    margin-left: 50px;
+}
+div p{
+    margin-bottom: 30px;
+    font-size: 18.5px;
+    font-weight: 600;
+}
+.biologie input, .constante input{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+input:hover{
+    box-shadow: 1px 1px 25px #0000004d;
+}
+
+iframe::-webkit-inner-spin-button,
+iframe::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  scrollbar-width: none;
 }

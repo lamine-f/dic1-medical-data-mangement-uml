@@ -9,7 +9,179 @@
 </head>
 <body>
     <div class="champ">
+        <div class="effort">
+            <h3>Dyspnée d'effort :</h3>
+            <div>
+                <input type="radio" name="effort" class="yesEffort">
+                <label for="yes">Oui</label>
+                <input type="radio" name="effort" class="noEffort">
+                <label for="no">Non</label>
+            </div>
+        </div>
 
+        <div class="effortType">
+            <h3>Type de dyspnée (NYHA) :</h3>
+            <div>
+                <input type="radio" name="dyspEff">
+                <label for="dyspnee">Type I</label>
+                <input type="radio" name="dyspEff">
+                <label for="dyspnee">Type II</label>
+                <input type="radio" name="dyspEff">
+                <label for="dyspnee">Type III</label>
+                <input type="radio" name="dyspEff">
+                <label for="dyspnee">Type IV</label>
+            </div>
+        </div>
+
+        <div class="poumon">
+            <h3>Œdème aigu du poumon :</h3>
+            <div>
+                <input type="radio" name="poumon">
+                <label for="yes">Oui</label>
+                <input type="radio" name="poumon">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="toux">
+            <h3>Toux :</h3>
+            <div>
+                <input type="radio" name="toux">
+                <label for="yes">Oui</label>
+                <input type="radio" name="toux">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="palpi">
+            <h3>Palpitations :</h3>
+            <div>
+                <input type="radio" name="palpi">
+                <label for="yes">Oui</label>
+                <input type="radio" name="palpi">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="omi">
+            <h3>OMI :</h3>
+            <div>
+                <input type="radio" name="omi">
+                <label for="yes">Oui</label>
+                <input type="radio" name="omi">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="constante">
+            <h3>Constantes :</h3>
+            <div>
+                <div>
+                    <label for="ta">TA :</label>
+                    <input type="text" placeholder="Saisir ici">
+                    <label for="fc">FC :</label>
+                    <input type="text" placeholder="Saisir ici">
+                    <label for="icg">FR :</label>
+                    <input type="text" placeholder="Saisir ici">
+                </div>
+                <div>    
+                    <label for="temp">Température :</label>
+                    <input type="text" placeholder="Saisir ici">
+                    <label for="poids">Poids :</label>
+                    <input type="text" placeholder="Saisir ici">
+                    <label for="taille">Taille :</label>
+                    <input type="text" placeholder="Saisir ici">
+                    <label for="imc">IMC :</label>
+                    <input type="text" placeholder="Saisir ici">
+                </div>
+            </div>
+        </div>
+
+        <div class="souffle">
+            <h3>Souffle cardiaque :</h3>
+            <div>
+                <input type="radio" name="souffle" class="yesSouffle">
+                <label for="yes">Oui</label>
+                <input type="radio" name="souffle" class="noSouffle">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="souffleType">
+            <h3>Type de souffle (NYHA) :</h3>
+            <div>
+                <div>
+                    <input type="checkbox" name="souffle">
+                    <label for="souffle">IM</label>
+                    <input type="checkbox" name="souffle">
+                    <label for="souffle">IA</label>
+                    <input type="checkbox" name="souffle">
+                    <label for="souffle">IP</label>
+                    <input type="checkbox" name="souffle">
+                    <label for="souffle">IT</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="souffle">
+                    <label for="souffle">RM</label>
+                    <input type="checkbox" name="souffle">
+                    <label for="souffle">RA</label>
+                    <input type="checkbox" name="souffle">
+                    <label for="souffle">RP</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tsvj">
+            <h3>TSVJ :</h3>
+            <div>
+                <input type="radio" name="tsvj">
+                <label for="yes">Oui</label>
+                <input type="radio" name="tsvj">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="hepato">
+            <h3>Hépatomégalie :</h3>
+            <div>
+                <input type="radio" name="hepato">
+                <label for="yes">Oui</label>
+                <input type="radio" name="hepato">
+                <label for="no">Non</label>
+            </div>
+        </div>
     </div>
+
+    <script>
+        //effort
+        let yesEffort = document.querySelector('.yesEffort');
+        let noEffort = document.querySelector('.noEffort');
+        let effortType = document.querySelector('.effortType');
+        let poumon = document.querySelector('.poumon');
+
+        effortType.style.display = 'none';
+        poumon.style.display = 'none';
+        yesEffort.addEventListener('click', function(){
+            effortType.style.display = 'block';
+            poumon.style.display = 'block';
+        });
+        noEffort.addEventListener('click', function(){
+            effortType.style.display = 'none';
+            poumon.style.display = 'none';
+        });
+
+        //souffle
+        let yesSouffle = document.querySelector('.yesSouffle');
+        let noSouffle = document.querySelector('.noSouffle');
+        let souffleType = document.querySelector('.souffleType');
+
+        souffleType.style.display = 'none';
+        yesSouffle.addEventListener('click', function(){
+            souffleType.style.display = 'block';
+        });
+        noSouffle.addEventListener('click', function(){
+            souffleType.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

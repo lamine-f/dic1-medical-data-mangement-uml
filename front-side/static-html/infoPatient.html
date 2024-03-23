@@ -9,40 +9,41 @@
 </head>
 <body>
     <nav>
-        <div class="left">
-            <div class="photo">
-                <i class='bx bx-user'></i>
-            </div>
-            <div class="name">
-                <p>Nom : <span></span></p><br>
-                <p>Age : <span></span></p><br>
-                <p>Matricule : <span></span></p>
+        <div style="position: relative;">
+            
+            <div class="left">
+                <div class="photo">
+                    <i class='bx bx-user'></i>
+                </div>
+                <div class="name">
+                    <p>Nom : <span></span></p><br>
+                    <p>Age : <span></span></p><br>
+                    <p>Matricule : <span></span></p>
+                </div>
             </div>
         </div>
     </nav>
     <div class="case">
         <div class="slide">
             <div class="slideOpt">
-                <a href="antecedantsPersonnels.html" target="sort">Antécédents Personnels</a>
+                <a href="antecedantsPersonnels.html" target="sort" class="point active">Antécédents Personnels</a>
             </div>
             <div class="slideOpt">
-                <a href="signesCliniques.html" target="sort">Signes Cliniques</a>
+                <a href="signesCliniques.html" target="sort" class="point">Signes Cliniques</a>
             </div>
             <div class="slideOpt">
-                <a href="signesParaCliniques.html" target="sort">Signes Paracliniques</a>
+                <a href="signesParaCliniques.html" target="sort" class="point">Signes Paracliniques</a>
             </div>
             <div class="slideOpt">
-                <a href="traitements.html" target="sort">Traitements</a>
-            </div>
-            <div class="slideOpt">
-                <a href="evolution.html" target="sort">Evolution après Sortie</a>
+                <a href="evolution.html" target="sort" class="point">Evolution après Sortie</a>
             </div>
         </div>
         <div class="load">
-            <iframe id="sort" name="sort" src="antecedantsPersonnels.html" frameborder="0"></iframe>
+            <iframe id="sort" name="sort" src="antecedantsPersonnels.html" ></iframe>
         </div>
     </div>    
 
     <script src="infoPatient.js"></script>
+    
 </body>
 </html>

@@ -34,17 +34,18 @@ header{
 .assistant, .medecin, .admin{
     width: 250px;
     height: 270px;
-    margin-right: 50px;
     box-shadow: 1px 1px 25px #0000004d;
     margin-bottom: 200px;
     position: relative;
 }
+.assistant, .medecin{
+    margin-right: 50px;
+}
 .assistant:hover, .medecin:hover, .admin:hover{
-    height: 280px;
-    width: 260px;
-    transition: all ease .5s;
+    transition: all ease 1s;
     border: 1px solid dodgerblue;
-    padding: 0px 5px;
+    width: 270px;
+    height: 280px;
 }
 .image{
     background-size: contain;
@@ -68,7 +69,7 @@ h2{
     text-align: center;
     margin-top: 20px;
 }
-button{
+.users a{
     position: absolute ;
     bottom: 10%;
     right: 50%;
@@ -76,9 +77,12 @@ button{
     padding: 3px;
     cursor: pointer;
     border: 1px solid black;
+    text-decoration: none;
+    color: var(--secondary--color);
 }
-button:hover{
-    background-color: white;
-    color: black;
+.users a:hover{
+    background-color: dodgerblue;
+    color: white;
     padding: 5px;
+    border: none;
 }

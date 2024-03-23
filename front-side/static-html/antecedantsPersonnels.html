@@ -17,38 +17,44 @@
                 <label for="yes">Oui</label>
                 <input type="radio" name="hta">
                 <label for="no">Non</label><br>
-
-                <p>Autres</p>
-                <input type="text" id="hta" placeholder="A préciser">
+            </div>
+            <div class="hta">
+                <label for="">Autres :</label>
+                <input type="text" placeholder="A préciser">
             </div>
         </div>
 
         <div class="gynecObst">
             <h3>Gynéco-Obstétricaux :</h3>
             <div>
-                <input type="checkbox" name="gyo">
-                <label for="gyo">Ménarche</label>
-                <input type="checkbox" name="gyo">
-                <label for="gyo">Gestité</label>
-                <input type="checkbox" name="gyo">
-                <label for="gyo">Parité</label>
-                <input type="checkbox" name="gyo">
-                <label for="gyo">Grossesses Gémelaires</label>
-                <input type="checkbox" name="gyo">
-                <label for="gyo">Tocolyse Prolongée (4 semaines) </label>
+                <div>
+                    <input type="checkbox" name="gyo">
+                    <label for="gyo">Ménarche</label>
+                    <input type="checkbox" name="gyo">
+                    <label for="gyo">Gestité</label>
+                    <input type="checkbox" name="gyo">
+                    <label for="gyo">Parité</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="gyo">
+                    <label for="gyo">Grossesses Gémelaires</label>
+                    <input type="checkbox" name="gyo">
+                    <label for="gyo">Tocolyse Prolongée (4 semaines) </label>
+                </div>
             </div>
         </div>
 
         <div class="antecedants">
             <h3>ATCD de décompensation durant la dernière grossesse :</h3>
             <div>
-                <input type="radio" name="atcd">
+                <input type="radio" name="atcd" class="yesAntecedant">
                 <label for="yes">Oui</label>
-                <input type="radio" name="atcd">
+                <input type="radio" name="atcd" class="noAntecedant">
                 <label for="no">Non</label><br>
-
+            </div>
+            <div class="decomp">
                 <label for="nbre">Nombre de décompensation</label>
-                <input type="input" id="nombreDecomp" placeholder="__">
+                <input type="number" placeholder="__">
             </div>
         </div>
 
@@ -67,15 +73,48 @@
         <div class="hospitalisation">
             <h3>Hospitalisations antérieures :</h3>
             <div>
-                <input type="radio" name="previousHospi">
+                <input type="radio" name="previousHospi" class="yeshospi">
                 <label for="yes">Oui</label>
-                <input type="radio" name="previousHospi">
+                <input type="radio" name="previousHospi" class="nohospi">
                 <label for="no">Non</label><br>
-
+            </div>
+            <div class="nbrehospi">
                 <label for="nbre">Nombre d'hospitalisations antérieur</label>
-                <input type="input" id="nombreDecomp" placeholder="__">
+                <input type="number" placeholder="__">
             </div>
         </div>
     </div>
+
+    <script>
+        //antecedant
+        let yesAntecedant = document.querySelector('.yesAntecedant');
+        let noAntecedant = document.querySelector('.noAntecedant');
+        let decompNbr = document.querySelector('.decomp');
+        let lack = document.querySelector('.lack');
+
+        decompNbr.style.display = 'none';
+        lack.style.display = 'none';
+        yesAntecedant.addEventListener('click', function(){
+            decompNbr.style.display = 'block';
+            lack.style.display = 'block';
+        });
+        noAntecedant.addEventListener('click', function(){
+            decompNbr.style.display = 'none';
+            lack.style.display = 'none';
+        });
+
+        //hospitalisation
+        let yeshospi = document.querySelector('.yeshospi');
+        let nohospi = document.querySelector('.nohospi');
+        let nbrhospi = document.querySelector('.nbrehospi');
+
+        nbrhospi.style.display = 'none';
+        yeshospi.addEventListener('click', function(){
+            nbrhospi.style.display = 'block';
+        });
+        nohospi.addEventListener('click', function(){
+            nbrhospi.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

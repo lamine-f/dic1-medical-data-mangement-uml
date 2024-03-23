@@ -1,9 +1,10 @@
-let antecedentPerso = document.getElementById('atcdPerso');
-let signeClinique = document.getElementById('clnqSign');
-let signeParaClinique = document.getElementById('paraClnqSign');
-let evolution = document.getElementById('evolution');
-
-evolution.onclick = () =>{
-    
-    
-}
+//SlideBar
+let links = document.querySelectorAll(".point");
+links.forEach(link => {
+    link.addEventListener("click", function() {
+        links.forEach(link => {
+            link.classList.remove("active");
+        });    
+        this.classList.add("active");
+    });
+});

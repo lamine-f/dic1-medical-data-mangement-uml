@@ -9,7 +9,221 @@
 </head>
 <body>
     <div class="champ">
+        <h2>Evolution après la sortie :</h2>
+        <div class="classe">
+            <h3>Classe NYHA :</h3>
+            <div>
+                <div>
+                    <input type="radio" name="classe">
+                    <label>Récupération totale</label>
+                    <input type="radio" name="classe">
+                    <label>Récupération partielle</label>
+                </div>
+                <div>
+                    <input type="radio" name="classe">
+                    <label>Etat stationnaire</label>
+                    <input type="radio" name="classe">
+                    <label>Dégradation de la qualité de vie</label>
+                </div>
+            </div>
+        </div>
 
+        <div class="mort">
+            <h3>Décès :</h3>
+            <div>
+                <input type="radio" name="mort" class="yesMort">
+                <label for="yes">Oui</label>
+                <input type="radio" name="mort" class="noMort">
+                <label for="no">Non</label>
+            </div>
+            <div class="date">
+                <label>Date :</label>
+                <input type="text" placeholder="A préciser">
+            </div>
+            <div class="cause">
+                <label>Causes :</label>
+                <input type="text" placeholder="A préciser">
+            </div>
+        </div>
+
+        <div class="lieu">
+            <h3>Lieu :</h3>
+            <div>
+                <input type="radio" name="lieu">
+                <label>Hôpital</label>
+                <input type="radio" name="lieu">
+                <label>Domicile</label>
+                <input type="radio" name="lieu">
+                <label>Autre</label>
+            </div>
+        </div>
+
+        <div class="observation">
+            <h3>Observation thérapeutique :</h3>
+            <div>
+                <input type="radio" name="observation">
+                <label>Oui</label>
+                <input type="radio" name="observation">
+                <label>Non</label>
+            </div>
+        </div>
+        
+        <div class="rehospi">
+            <label for="nbre">Nombre de réhospitalisation</label>
+            <input type="number" placeholder="__">
+        </div>
+
+        <div class="facteur">
+            <h3>Facteur de décompensation :</h3>
+            <div>
+                <div>
+                    <input type="checkbox" name="facteur">
+                    <label>Anémie</label>
+                    <input type="checkbox" name="facteur">
+                    <label>Dénutrition</label>
+                    <input type="checkbox" name="facteur">
+                    <label>Bactériennes</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="facteur">
+                    <label>Infections virales</label>
+                    <input type="checkbox" name="facteur">
+                    <label>Ruptures thérapeutiques</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="ett">
+            <h3>ETT :</h3>
+            <div>
+                <input type="radio" name="ett">
+                <label for="yes">Oui</label>
+                <input type="radio" name="ett">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="dtdvg">
+            <h3>DTDVG :</h3>
+            <div>
+                <input type="radio" name="dtdvg">
+                <label for="yes">DTSVG</label>
+                <input type="radio" name="dtdvg">
+                <label for="no">FEVG</label>
+                <input type="radio" name="dtdvg">
+                <label for="no">FR</label>
+            </div>
+        </div>
+
+        <div class="e">
+            <h3>E :</h3>
+            <div>
+                <input type="radio" name="e">
+                <label for="yes">Oui</label>
+                <input type="radio" name="e">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="a">
+            <h3>A :</h3>
+            <div>
+                <input type="radio" name="a">
+                <label for="yes">Oui</label>
+                <input type="radio" name="a">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="td">
+            <h3>TD :</h3>
+            <div>
+                <input type="radio" name="td">
+                <label for="yes">Oui</label>
+                <input type="radio" name="td">
+                <label for="no">Non</label>
+            </div>
+        </div>
+        
+        <div class="eE">
+            <h3>E/E' :</h3>
+            <div>
+                <input type="radio" name="eE">
+                <label for="yes">Oui</label>
+                <input type="radio" name="eE">
+                <label for="no">Non</label>
+            </div>
+        </div>
+        
+        <div class="tapse">
+            <h3>TAPSE :</h3>
+            <div>
+                <input type="radio" name="tapse">
+                <label for="yes">Oui</label>
+                <input type="radio" name="tapse">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="dtog">
+            <h3>DTOG :</h3>
+            <div>
+                <input type="radio" name="dtog">
+                <label for="yes">Oui</label>
+                <input type="radio" name="dtog">
+                <label for="no">Non</label>
+            </div>
+        </div>
+
+        <div class="biologie">
+            <h3>Biologie :</h3>
+            <div class="bio">
+                <label for="bio">Hémoglobinémie :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">GB :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Plaquettes :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">VGM :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">CCMH :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">TCMH :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">CRP :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Urée :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Créatininémie :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">NT pro BNP :</label>
+                <input type="text" placeholder="Saisir ici">
+                <label for="bio">Prolactine :</label>
+                <input type="text" placeholder="Saisir ici">
+            </div>
     </div>
+
+    <script>
+        //mort
+        let yesMort = document.querySelector('.yesMort');
+        let noMort = document.querySelector('.noMort');
+        let date = document.querySelector('.date');
+        let cause = document.querySelector('.cause');
+        let lieu = document.querySelector('.lieu');
+
+        date.style.display = 'none';
+        cause.style.display = 'none';
+        lieu.style.display = 'none';
+        noMort.addEventListener('click', function(){
+            date.style.display = 'none';
+            cause.style.display = 'none';
+            lieu.style.display = 'none';
+        });
+        yesMort.addEventListener('click', function(){
+            date.style.display = 'block';
+            cause.style.display = 'block';
+            lieu.style.display = 'block';
+        });
+    </script>
 </body>
 </html>

@@ -170,14 +170,14 @@ div #inscription:hover{
     background-color: white;
     color: dodgerblue;
 }
-div #age {
+input[type="number"]{
     width: 50px !important;
     text-align: center;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  margin-right: -40px;
+  /* margin-right: -40px; */
 }
 div #tel{
     width: 200px;
