@@ -6,20 +6,6 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-*::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-* {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-
 body{
     background-color: var(--primary--color);
     overflow-x: hidden;
@@ -92,8 +78,8 @@ input:hover{
     box-shadow: 1px 1px 25px #0000004d;
 }
 
-iframe::-webkit-inner-spin-button,
-iframe::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  scrollbar-width: none;
+.load iframe {
+    overflow: hidden; /* Masquer tout défilement */
+    -ms-overflow-style: none; /* Masquer la barre de défilement pour IE et Edge */
+    scrollbar-width: none; /* Masquer la barre de défilement pour Firefox */
 }
