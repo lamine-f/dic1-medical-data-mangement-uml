@@ -39,23 +39,23 @@ back-side/persistence/.mvn
 ###### React ######
 
 # dependencies
-front-side/webapp/node_modules
-front-side/webapp/.pnp
-front-side/webapp.pnp.js
+front-side/*/node_modules
+front-side/*/.pnp
+front-side/*.pnp.js
 
 # testing
-front-side/webapp/coverage
+front-side/*/coverage
 
 # production
-front-side/webapp/build
+front-side/*/build
 
 # misc
-front-side/webapp/.DS_Store
-front-side/webapp/.env.local
-front-side/webapp/.env.development.local
-front-side/webapp/.env.test.local
-front-side/webapp/.env.production.local
+front-side/*/.DS_Store
+front-side/*/.env.local
+front-side/*/.env.development.local
+front-side/*/.env.test.local
+front-side/*/.env.production.local
 
-front-side/webapp/npm-debug.log*
-front-side/webapp/yarn-debug.log*
-front-side/webapp/yarn-error.log*
+front-side/*/npm-debug.log*
+front-side/*/yarn-debug.log*
+front-side/*/yarn-error.log*

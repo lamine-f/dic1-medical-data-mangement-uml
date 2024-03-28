@@ -1,0 +1,97 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    position: fixed;
+    padding: 10px 3%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.header h2{
+    color: dodgerblue;
+}
+
+.logo{
+    cursor: pointer;
+}
+.logo img{
+    width: 100px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding: 100px 0;
+}
+
+.users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+}
+.assistant, .medecin, .admin{
+    width: 250px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
+    box-shadow: 1px 1px 25px #0000004d;
+}
+
+
+.image{
+    background-size: contain;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-image: url(static/images/worplace-modern-hospital.jpg);
+}
+
+.users h4{
+    text-align: center;
+    font-size: 20px;
+}
+.users p{
+    text-align: center;
+}
+
+
+.loginButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    border-radius: 20px;
+    padding: 10px 50px;
+    background: dodgerblue;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+
+}
+
+
+.assistant:hover, .medecin:hover, .admin:hover, .button:hover{
+    animation: zoom .5s ease forwards ;
+}
+
+@keyframes zoom {
+    0% {
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}

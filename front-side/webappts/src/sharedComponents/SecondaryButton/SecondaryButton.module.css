@@ -1,0 +1,36 @@
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    border-radius: 20px;
+    padding: 10px 50px;
+    background: white;
+    cursor: pointer;
+    color: dodgerblue;
+    font-weight: 600;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+
+}
+
+.button:active {
+    background:dodgerblue;
+    color: white;
+}
+
+
+
+.assistant:hover, .medecin:hover, .admin:hover, .button:hover{
+    animation: zoom .5s ease forwards ;
+}
+
+@keyframes zoom {
+    0% {
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}

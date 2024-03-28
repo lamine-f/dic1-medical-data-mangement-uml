@@ -13,7 +13,7 @@ export default function DashbordLayout () {
             footerText={name}
         >
             <Buttons >
-                <Button isActive={true} route={""} value={"Acceuil"}/>
+                <Button isActive={true} route={""} value={"Accueil"}/>
                 <Button route={"patient/medicalfile"} value={"Patient"}/>
                 <Button route={"meets"} value={"Rendez vous"}/>
                 <Button route={"forms"} value={"Formulaire"}/>

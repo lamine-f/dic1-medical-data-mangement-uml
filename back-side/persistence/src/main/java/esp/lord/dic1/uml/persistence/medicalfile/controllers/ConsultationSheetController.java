@@ -16,8 +16,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("medicalFiles/consultationSheets")
+@CrossOrigin(value = "*")
 public class ConsultationSheetController {
-
     private final ConsultationSheetService consultationSheetService;
     public ConsultationSheetController(ConsultationSheetService consultationSheetService) {
         this.consultationSheetService = consultationSheetService;

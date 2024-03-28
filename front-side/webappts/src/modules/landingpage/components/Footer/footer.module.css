@@ -1,0 +1,131 @@
+
+/*links on footer*/
+.footer{
+    width: 100%;
+    padding: 50px 100px;
+    background-color: var(--footer--background);
+}
+.footer a{
+    text-decoration: none;
+    color: var(--footer_text--color);
+}
+
+
+/*background footer*/
+.mainFooter{
+    padding: 20px 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainFooterLeft {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-len);
+}
+
+.h5{
+    font-size: 20px;
+}
+.name{
+    color: var(--main--color);
+}
+.name:hover{
+    text-decoration: underline;
+}
+.mail input{
+    padding: 5px 58px;
+    border-radius: 5px;
+    border: .5px solid var(--main--color);
+}
+.textarea{
+    border-radius: 5px;
+    border: .5px solid var(--main--color);
+    padding-left: 10px;
+}
+.textarea::placeholder{
+    font-size: 17px;
+}
+.textarea:focus, .mail input:focus{
+    outline: 1.5px solid var(--main--color);
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit input{
+    padding: 5px 50px;
+    border: 1px solid var(--main--color);
+    font-weight: 600;
+    border-radius: 5px;
+    color: var(--primary--color);
+    background-color: var(--main--color);
+}
+.submit input:hover{
+    background-color: transparent;
+    transform: scale(1.05);
+    transition: all ease .7s;
+    color: var(--secondary--color);
+    border-color: var(--main--color);
+}
+
+
+/*icons on contact*/
+.joinMe a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: solid 2px var(--main--color);
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 10px 20px 5px 0;
+    color: var(--secondary--color);
+    transition: all ease .5s;
+}
+.joinMe a:hover{
+    background-color: var(--main--color);
+    transition: all ease .7s;
+    color: var(--primary--color);
+}
+.joinMe p{
+    color: var(--footer_text--color);
+    font-size: 15px;
+}
+.joinMe p:hover{
+    color: var(--secondary--color);
+}
+.inline div{
+    display: flex;
+    align-items: center;
+}
+
+
+/*options "Aller à" */
+.options{
+    width: 160px;
+}
+.options h5{
+    margin-bottom: 10px;
+}
+.options li{
+    list-style: none;
+}
+.options a{
+    padding-bottom: 5px;
+    display: flex;
+}
+.options a:hover{
+    color: var(--main--color);
+    transition: all ease .3s;
+    font-size: 17px;
+}
+.last{
+    margin-top: 30px;
+    text-align: center;
+}

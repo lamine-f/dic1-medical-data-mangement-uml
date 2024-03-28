@@ -1,0 +1,21 @@
+.wrapperActive, .wrapperInactive {
+    border-radius: 50px;
+    width: 80%;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+}
+
+.wrapperActive {
+    background: var(--primary--color);
+}
+
+.wrapperInactive:hover {
+    background: var(--primary--color);
+}
+
+
+.buttonText {
+    font-weight: bold;
+    color: white;
+}
