@@ -23,6 +23,21 @@ export  const users: BdUser[] = [
     },
     {
         user: {
+            id: 4,
+            isConnected: false,
+            name: {
+                firstName: "Alassane",
+                lastName: "Ba"
+            },
+            role: Role.MED,
+        },
+        credentials: {
+            username: "alassane",
+            password: "passer"
+        },
+    },
+    {
+        user: {
             id: 2,
             isConnected: false,
             name: {

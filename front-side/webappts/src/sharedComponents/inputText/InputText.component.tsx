@@ -16,9 +16,10 @@ interface InputTextProps {
     width?: string,
     height?: string,
     type: string,
-    required: boolean
+    required: boolean,
+    passedValue?: string
 }
-export default function InputText ({label, placeholder, onChange, width, height, type, required} : InputTextProps) {
+export default function InputText ({passedValue, label, placeholder, onChange, width, height, type, required} : InputTextProps) {
     const [value, setValue] = useState("");
     const [error, setError] = useState({error: false, message: ""});
 
@@ -30,6 +31,13 @@ export default function InputText ({label, placeholder, onChange, width, height,
             setError( e => ({...e, error:true, message: "Required" }))
         }
     }, [value]);
+
+    useEffect(() => {
+        if (passedValue)
+            setValue(passedValue);
+    }, [passedValue]);
+
+
 
     return <section className={styles.wrapper} >
         <div className={styles.inputContainer} style={{width, height}} >

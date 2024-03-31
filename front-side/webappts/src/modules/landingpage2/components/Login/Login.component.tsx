@@ -18,8 +18,8 @@ export default function Login ({show}: {show: (v: boolean) => void}) {
             </div>
             <div className={styles.loginMain} >
                 <div className={styles.inputsContainer} >
-                    <InputText required={true} label={"Nom d'utilisateur"} type={"text"} onChange={(e) => { setCredentials(c => ({...c, username: e.target.value})) }} />
-                    <InputText required={true} label={"Mot de passe"} type={"password"} onChange={(e) => { setCredentials(c => ({...c, password: e.target.value})) }} />
+                    <InputText placeholder={"alassane"} required={true} label={"Nom d'utilisateur"} type={"text"} onChange={(e) => { setCredentials(c => ({...c, username: e.target.value})) }} />
+                    <InputText placeholder={"passer"} required={true} label={"Mot de passe"} type={"password"} onChange={(e) => { setCredentials(c => ({...c, password: e.target.value})) }} />
                 </div>
                 <div className={styles.actionButtonsContainer} >
                     <PrimaryButton value={"Valider"} action={() => login(credentials)} />

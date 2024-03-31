@@ -8,8 +8,6 @@ export  default function Home () {
         {/*<Header/>*/}
         <div className={styles.sectionContainers} >
             <Section1/>
-            <Section2/>
-            <Section3/>
         </div>
     </div>
 

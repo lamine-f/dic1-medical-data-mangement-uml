@@ -34,7 +34,7 @@ function App() {
             <Route path="medicalfile/:id"  element={<ConsultationSheets/>} />
             <Route path="medicalfile/:medicalId/:sheetNumber"  element={<><Analyses/> <Preinscriprion/> </>} />
             <Route path="meets"  element={<MeetLayout/>} />
-            <Route path="stats"  element={<div>Statistiques</div>} />
+            <Route path="stats"  element={<div>Statistiques (En cours)</div>} />
           </Route>
 
           <Route path="admin"  element={<div>ADMIN</div>} >

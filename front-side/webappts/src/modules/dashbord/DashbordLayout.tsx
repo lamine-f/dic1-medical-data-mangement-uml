@@ -1,8 +1,8 @@
 import styles from "./DashbordLayout.module.css";
 import {Outlet, useNavigate} from "react-router-dom";
-import SideBar from "./pages/sidebar/SideBar";
-import Button from "./pages/sidebar/button/Button";
-import Buttons from "./pages/sidebar/buttons/Buttons";
+import SideBar from "./components/sidebar/SideBar";
+import Button from "./components/sidebar/button/Button";
+import Buttons from "./components/sidebar/buttons/Buttons";
 import useGenerateName from "../../_hooks/useGenerateName";
 import React, {useState} from "react";
 import InputText from "../../sharedComponents/inputText/InputText.component";
@@ -24,7 +24,7 @@ export default function DashbordLayout () {
             width={""}
         >
             <Buttons >
-                <Button isActive={true} route={""} value={"Accueil"}/>
+                <Button route={""} value={"Accueil"}/>
                 <Button route={"patient"} value={"Patient"}/>
                 <Button route={"medicalfile"} value={"Dossier médic"}/>
                 <Button route={"meets"} value={"Rendez vous"}/>
