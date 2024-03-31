@@ -4,7 +4,7 @@ import './App.css';
 import LandingPage from "./modules/landingpage2/LandingPage";
 import DashbordLayout from "./modules/dashbord/DashbordLayout";
 import MedicalFile from "./modules/dashbord/pages/medicalFile/MedicalFile";
-import MeetLayout from "./modules/dashbord/pages/meet/MeetLayout";
+import MeetLayout from "./modules/dashbord/pages/meet/Meet";
 import Logout from "./modules/dashbord/pages/logout/Logout";
 import Protected from "./components/protected/Protected";
 import {Toaster} from "react-hot-toast";
@@ -26,24 +26,17 @@ function App() {
           <Route path="">
             <Route path="" element={<LandingPage/>} />
           </Route>
+
           <Route path="dashboard" element={<Protected><DashbordLayout/></Protected>} >
             <Route path={""} element={ <Home/> } />
-            <Route path="patient" element={<Patient/>} >
-              {/*<Route path="management"  element={<div>En cours</div>} />*/}
-              {/*<Route path="management/add"  element={<div>Ajout</div>} />*/}
-              {/*<Route path="management/modify"  element={<div>Modi</div>} />*/}
-              {/*<Route path="management/delete"  element={<div>Delete</div>} />*/}
-            </Route>
-
+            <Route path="patient" element={<Patient/>} />
             <Route path="medicalfile"  element={<MedicalFile/>} />
             <Route path="medicalfile/:id"  element={<ConsultationSheets/>} />
             <Route path="medicalfile/:medicalId/:sheetNumber"  element={<><Analyses/> <Preinscriprion/> </>} />
-
-
             <Route path="meets"  element={<MeetLayout/>} />
-
             <Route path="stats"  element={<div>Statistiques</div>} />
           </Route>
+
           <Route path="admin"  element={<div>ADMIN</div>} >
             <Route path=""  element={<div></div>} />
           </Route>
