@@ -18874,7 +18874,7 @@
 											"top": 679,
 											"width": 153.56884765625,
 											"height": 13,
-											"text": "Preinscriptions"
+											"text": "Analyses"
 										},
 										{
 											"_type": "LabelView",
@@ -23935,7 +23935,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGOXURU3zu1KXI="
 					},
-					"name": "Preinscriptions",
+					"name": "Analyses",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",

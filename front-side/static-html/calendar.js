@@ -23,20 +23,19 @@ let month = today.getMonth();
 let year = today.getFullYear();
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "Janvier",
+  "Février",
+  "Mars",
+  "Avril",
+  "Mai",
+  "Juin",
+  "Juillet",
+  "Août",
+  "Septembre",
+  "Octobre",
+  "Novembre",
+  "Décembre",
 ];
-
 
 const eventsArr = [];
 getEvents();
@@ -209,16 +208,18 @@ function gotoDate() {
       return;
     }
   }
-  alert("Invalid Date");
+  alert("Date invalide");
 }
 
 //function get active day day name and date and update eventday eventdate
 function getActiveDay(date) {
-  const day = new Date(year, month, date);
-  const dayName = day.toString().split(" ")[0];
-  eventDay.innerHTML = dayName;
-  eventDate.innerHTML = date + " " + months[month] + " " + year;
+    const day = new Date(year, month, date);
+    const options = { weekday: 'long', timeZone: 'UTC' };
+    const dayName = day.toLocaleDateString('fr-FR', options);
+    eventDay.innerHTML = dayName;
+    eventDate.innerHTML = date + " " + months[month] + " " + year;
 }
+  
 
 //function update events when a day is active
 function updateEvents(date) {
@@ -244,7 +245,7 @@ function updateEvents(date) {
   });
   if (events === "") {
     events = `<div class="no-event">
-            <h3>No Events</h3>
+            <h3>Pas d'evenements</h3>
         </div>`;
   }
   eventsContainer.innerHTML = events;
@@ -291,51 +292,53 @@ defineProperty();
 
 //allow only time in eventtime from and to
 addEventFrom.addEventListener("input", (e) => {
-  addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, "");
-  if (addEventFrom.value.length === 2) {
-    addEventFrom.value += ":";
-  }
-  if (addEventFrom.value.length > 5) {
-    addEventFrom.value = addEventFrom.value.slice(0, 5);
-  }
+    addEventFrom.value = addEventFrom.value.replace(/[^0-9/]/g, "");
+    if (addEventFrom.value.length === 2 || addEventFrom.value.length === 5) {
+        if (!addEventFrom.value.endsWith("/")) {
+            addEventFrom.value += "/";
+        }
+    } else if (addEventFrom.value.length > 10) {
+        addEventFrom.value = addEventFrom.value.slice(0, 10);
+    }
 });
+  
+  addEventTo.addEventListener("input", (e) => {
+    addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
+    if (addEventTo.value.length === 2) {
+      addEventTo.value += ":";
+    }
+    if (addEventTo.value.length > 5) {
+      addEventTo.value = addEventTo.value.slice(0, 5);
+    }
+  });
+  
+  //function to add event to eventsArr
+  addEventSubmit.addEventListener("click", () => {
+    const eventTitle = addEventTitle.value;
+    const eventTimeFrom = addEventFrom.value;
+    const eventTimeTo = addEventTo.value;
+    if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
+      alert("Veuillez renseigner ces champs !");
+      return;
+    }
+  
+    //check correct time format 24 hour
+    const timeFromArr = eventTimeFrom.split("/");
+    const timeToArr = eventTimeTo.split(":");
+    if (
+      timeFromArr.length !== 3 ||
+      timeToArr.length !== 2 ||
+      timeFromArr[0] > 31 ||
+      timeFromArr[1] > 12 ||
+      timeFromArr[2] > 2999 ||
+      timeToArr[0] > 23 ||
+      timeToArr[1] > 59
+    ) {
+      alert("Format Invalide");
+      return;
+    }
 
-addEventTo.addEventListener("input", (e) => {
-  addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
-  if (addEventTo.value.length === 2) {
-    addEventTo.value += ":";
-  }
-  if (addEventTo.value.length > 5) {
-    addEventTo.value = addEventTo.value.slice(0, 5);
-  }
-});
-
-//function to add event to eventsArr
-addEventSubmit.addEventListener("click", () => {
-  const eventTitle = addEventTitle.value;
-  const eventTimeFrom = addEventFrom.value;
-  const eventTimeTo = addEventTo.value;
-  if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
-    alert("Please fill all the fields");
-    return;
-  }
-
-  //check correct time format 24 hour
-  const timeFromArr = eventTimeFrom.split(":");
-  const timeToArr = eventTimeTo.split(":");
-  if (
-    timeFromArr.length !== 2 ||
-    timeToArr.length !== 2 ||
-    timeFromArr[0] > 23 ||
-    timeFromArr[1] > 59 ||
-    timeToArr[0] > 23 ||
-    timeToArr[1] > 59
-  ) {
-    alert("Invalid Time Format");
-    return;
-  }
-
-  const timeFrom = convertTime(eventTimeFrom);
+  const timeFrom = convertDate(eventTimeFrom);
   const timeTo = convertTime(eventTimeTo);
 
   //check if event is already added
@@ -354,7 +357,7 @@ addEventSubmit.addEventListener("click", () => {
     }
   });
   if (eventExist) {
-    alert("Event already added");
+    alert("Evenement déjà ajouté");
     return;
   }
   const newEvent = {
@@ -402,7 +405,7 @@ addEventSubmit.addEventListener("click", () => {
 //function to delete event when clicked on event
 eventsContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("event")) {
-    if (confirm("Are you sure you want to delete this event?")) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer cet événement ?")) {
       const eventTitle = e.target.children[0].children[1].innerHTML;
       eventsArr.forEach((event) => {
         if (
@@ -454,4 +457,20 @@ function convertTime(time) {
   timeHour = timeHour % 12 || 12;
   time = timeHour + ":" + timeMin + " " + timeFormat;
   return time;
+}
+
+function convertDate(date) {
+    // Extraire la date du format JJ/MM/AAAA
+    const [day, month, year] = date.split("/");
+    
+    // Vérifier si les composants de la date sont valides
+    if (!day || !month || !year) {
+        alert("Format de date invalide");
+        return null;
+    }
+    
+    // Convertir en format DD/MM/YYYY
+    const formattedDate = day.padStart(2, '0') + "/" + month.padStart(2, '0') + "/" + year;
+    
+    return formattedDate;
 }
