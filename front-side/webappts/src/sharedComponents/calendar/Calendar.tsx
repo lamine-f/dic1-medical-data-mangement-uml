@@ -51,6 +51,7 @@ function Calendar() {
             ]
         }
 
+        storeEvent(newEvent);
         setEventName('');
         setEventDate('');
         setEventTimeFrom('');
@@ -135,8 +136,22 @@ function Calendar() {
         localStorage.setItem("events", JSON.stringify(eventsArr));
     }
 
-    function saveEvent() {
-        localStorage.setItem("events", JSON.stringify(eventsArr));
+    function storeEvent(event:Events) {
+        let isAlreadyExist = true;
+        const events = eventsArr.map(evt => {
+            if ( evt.day == event.day && evt.month == event.month && evt.year == event.year ) {
+                isAlreadyExist = false;
+                evt.data = [...evt.data, ...event.data]
+                return evt;
+            }else {
+                return evt
+            }
+        } )
+        if ( isAlreadyExist ) {
+            events.push(event);
+        }
+
+        localStorage.setItem("events", JSON.stringify(events));
     }
     function getEventsOfDay() {
         const evts = eventsArr.filter(events => events.day === eventsOfDay?.day && events.month === eventsOfDay.month && events.year === eventsOfDay.year );

@@ -1,34 +1,34 @@
 version: '3.8'
 
 services:
+  springboot-app:
+    container_name: spring
+    build:
+      context: .
+      dockerfile: Dockerfile.spring
+    ports:
+      - "9090:80"
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    volumes:
+      - /home/neo/Desktop/db:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: hospital_management
+      MYSQL_ROOT_PASSWORD: root
+
+
   frontend:
     container_name: react-frontend
     build:
       context: .
-      dockerfile: front-side/webappts/Dockerfile
+      dockerfile: Dockerfile.react
     ports:
-      - "3000:80"
-    depends_on:
-      - backend
-
-  backend:
-    container_name: spring-backend
-    build:
-      context: .
-      dockerfile: back-side/persistence/Dockerfile
-    ports:
-      - "8080:8080"
-    depends_on:
-      - database
-
-  database:
-    container_name: mysql-db
-    image: mysql:latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD:
-      MYSQL_DATABASE: hospital_management
-      MYSQL_USER: access
-      MYSQL_PASSWORD: passer2023
-    ports:
-      - "3306:3306"
+      - "9090:80"
