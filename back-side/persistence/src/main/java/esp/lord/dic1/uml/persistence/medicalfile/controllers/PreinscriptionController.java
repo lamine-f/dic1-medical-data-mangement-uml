@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("medicalFiles/consultationSheets/preinscriptions")
+@CrossOrigin(value = "*")
 public class PreinscriptionController {
     private final PreinscriptionService preinscriptionService;
     public PreinscriptionController(PreinscriptionService preinscriptionService) {

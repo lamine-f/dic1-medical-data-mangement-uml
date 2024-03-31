@@ -1,8 +1,12 @@
 package esp.lord.dic1.uml.persistence.medicalfile.services.impl;
 
+import esp.lord.dic1.uml.persistence.entities.Patient;
+import esp.lord.dic1.uml.persistence.exceptions.PatientNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.*;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.*;
 import esp.lord.dic1.uml.persistence.medicalfile.repositories.*;
+import esp.lord.dic1.uml.persistence.repositories.PatientRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,8 +17,10 @@ public class GetEntity {
     private final PreinscriptionRepository preinscriptionRepository;
     private final DrugRepository drugRepository;
     private final AnalysisFileRepository analysisFileRepository;
+    private final PatientRepository patientRepository;
 
     public GetEntity(
+            PatientRepository patientRepository,
             MedicalFileRepository medicalFileRepository,
             ConsultationSheetRepository consultationSheetRepository,
             AnalysisRepository analysisRepository,
@@ -22,11 +28,19 @@ public class GetEntity {
             DrugRepository drugRepository,
             AnalysisFileRepository analysisFileRepository) {
         this.medicalFileRepository = medicalFileRepository;
+        this.patientRepository = patientRepository;
         this.consultationSheetRepository = consultationSheetRepository;
         this.analysisRepository = analysisRepository;
         this.preinscriptionRepository = preinscriptionRepository;
         this.drugRepository = drugRepository;
         this.analysisFileRepository = analysisFileRepository;
+    }
+
+    public Patient getPatient (Integer patientId) throws PatientNotFoundException {
+        Patient patient = this.patientRepository.findById(patientId).orElse(null);
+        if ( patient == null )
+            throw new PatientNotFoundException("patient not found");
+        return patient;
     }
 
     public MedicalFile getMedicalFile (Integer medicalFileId) throws MedicalFileNotFoundException {

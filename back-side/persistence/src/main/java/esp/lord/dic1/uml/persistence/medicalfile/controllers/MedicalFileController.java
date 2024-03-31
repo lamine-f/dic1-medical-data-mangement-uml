@@ -1,5 +1,6 @@
 package esp.lord.dic1.uml.persistence.medicalfile.controllers;
 
+import esp.lord.dic1.uml.persistence.exceptions.PatientNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.MedicalFileDto;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.AnalysisNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.exceptions.ConsultationSheetNotFoundException;
@@ -27,7 +28,11 @@ public class MedicalFileController {
     ) {
         if ( id == null )
             return ResponseEntity.ok().body(Map.of("message", "success", "data", this.medicalFileService.getMedicalFiles() ));
-        return ResponseEntity.ok().body(Map.of("message", "success", "data", this.medicalFileService.getMedicalFilesOfPatient(id)));
+        try {
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", this.medicalFileService.getMedicalFilesOfPatient(id)));
+        } catch (PatientNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
     }
 
     @DeleteMapping( value = "{id}", produces = "application/json")
@@ -42,12 +47,18 @@ public class MedicalFileController {
         }
     }
 
-    @PutMapping(value = "", produces = "application/json")
+    @PutMapping(value = "{id}", produces = "application/json")
     public ResponseEntity<Map<String, Object>> addMedicalFile (
-            @RequestBody(required = true) MedicalFileDto medicalFileDto
+            @RequestBody(required = true) MedicalFileDto medicalFileDto,
+            @PathVariable(required = true, name = "id") Integer patientId
             ) {
-        MedicalFileDto medicalFileDtoSaved = MedicalFileDto.toMedicalFileDto( this.medicalFileService.create(medicalFileDto));
-        return ResponseEntity.ok().body(Map.of("message", "success", "data", medicalFileDtoSaved));
+        MedicalFileDto medicalFileDtoSaved = null;
+        try {
+            medicalFileDtoSaved = MedicalFileDto.toMedicalFileDto( this.medicalFileService.create(medicalFileDto, patientId));
+            return ResponseEntity.ok().body(Map.of("message", "success", "data", medicalFileDtoSaved));
+        } catch (PatientNotFoundException e) {
+            return ResponseEntity.status(400).body(Map.of("message", e.getMessage()));
+        }
     }
 
     @PatchMapping(value = "{medicalFileId}", produces = "application/json")

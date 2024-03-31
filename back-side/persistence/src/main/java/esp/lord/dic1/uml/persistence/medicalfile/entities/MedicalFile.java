@@ -1,5 +1,6 @@
 package esp.lord.dic1.uml.persistence.medicalfile.entities;
 
+import esp.lord.dic1.uml.persistence.entities.Patient;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,4 +20,6 @@ public class MedicalFile {
     Date modificationDate;
     @OneToMany (fetch = FetchType.EAGER)
     List<ConsultationSheet> consultationSheets;
+    @ManyToOne
+    Patient patient;
 }

@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("medicalFiles/consultationSheets/drugs")
+@CrossOrigin(value = "*")
 public class DrugController {
     private final DrugService drugService;
     public DrugController(DrugService drugService) {

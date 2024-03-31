@@ -1,6 +1,6 @@
 import styles from "./Logout.module.css"
-import PrimaryButton from "../../../../sharedComponents/PrimaryButton/PrimaryButton.component";
-import SecondaryButton from "../../../../sharedComponents/SecondaryButton/SecondaryButton.component";
+import PrimaryButton from "../../../../sharedComponents/primaryButton/PrimaryButton.component";
+import SecondaryButton from "../../../../sharedComponents/secondaryButton/SecondaryButton.component";
 import useLogout from "../../../../_hooks/useLogout";
 export default function Logout () {
 

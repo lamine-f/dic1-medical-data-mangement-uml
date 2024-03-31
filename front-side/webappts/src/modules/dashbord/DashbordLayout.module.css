@@ -6,7 +6,38 @@
 }
 
 .main {
+    position: relative;
     width: calc( 100% - var(--sidebar-width) ) ;
+    overflow: auto;
+}
+
+.back,
+.disconnectIcon {
+    position: absolute;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 35px;
+    height: 35px;
+    color: white;
+    background: var(--primary--color);
+    cursor: pointer;
+}
+
+.back:hover,
+.disconnectIcon:hover {
+    filter: invert(1);
+}
+
+.back {
+    left: 10px;
+}
+
+.disconnectIcon {
+    right: 10px;
+
 }
 
 .toaster {

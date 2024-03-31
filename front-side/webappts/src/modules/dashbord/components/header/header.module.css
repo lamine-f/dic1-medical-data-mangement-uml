@@ -1,0 +1,87 @@
+.header{
+    position: relative;
+    padding: 10px 3%;
+    display: flex;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.logo{
+    margin-right: auto;
+    cursor: pointer;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+.logo img{
+    width: 100px;
+    animation: slideRight 1s ease forwards;
+}
+
+
+.navbar a{
+    color: var(--secondary--color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 25px;
+    font-size: 17px;
+    position: relative;
+    opacity: 1  ;
+    animation: slideLeft 1s ease forwards;
+}
+.navbar a.active::before{
+    position: absolute;
+    bottom: -6px;
+    width: 100%;
+    border-radius: 8px;
+    left: 0;
+    height: 2.8px;
+    background-color: var(--main--color);
+    content: '';
+}
+.navbar a::after{
+    position: absolute;
+    content: '';
+    right: 0;
+    bottom:-6px;
+    width: 0;
+    height: 2.8px;
+    background-color: var(--main--color);
+    border-radius: 8px;
+    transition: all ease 0.45s;
+}
+.navbar a:hover::after{
+    width: 100%;
+}
+.menu{
+    color: white;
+    margin-right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 25px;
+}
+
+
+.connect{
+    text-decoration: none;
+    font-size: 17px;
+    margin-left: 20px;
+    border: 1px solid dodgerblue;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: dodgerblue;
+}
+.connect:hover{
+    border: 1px solid dodgerblue;
+    color: black;
+    background-color: white;
+}
+.navbar .connect::before,
+.navbar .connect::after {
+    content: none;
+}

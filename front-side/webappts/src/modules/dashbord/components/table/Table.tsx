@@ -1,15 +1,17 @@
 import styles from "./Table.module.css"
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 interface TableProps {
     fields: any,
     data: any | any[],
-    next: string
+    action: (v:any) => any
 
 }
-export default function Table ({fields, data, next}: TableProps) {
+export default function Table ({fields, data, action}: TableProps) {
 
-    const navigate = useNavigate();
+    const [selectedRow, setSelectedRow] = useState<any>({});
+
     const fieldsKeys = Object.keys(fields);
 
     return <section className={styles.wrapper} >
@@ -21,8 +23,12 @@ export default function Table ({fields, data, next}: TableProps) {
             </thead>
             <tbody className={styles.tbody} >
                 {
-                    data.map((row:any, id: number) => <tr key={id} onClick={() => navigate( row[next].toString() )} >
-                            {Object.keys(row).slice(0, data.length-1).map((_, id) => <td key={id} className={styles.column} > {row[fieldsKeys[id]]} </td> )}
+                    data.map((row:any, id: number) => <tr  className={`${styles.row}  ${ selectedRow.id1 == row && styles.rowChoice}` } key={id} onClick={() => {
+                        setSelectedRow({id1: row })
+
+                            action(row);
+                        } } >
+                            {Object.keys(row).map((_, id) => <td key={id} className={styles.column} > {row[fieldsKeys[id]]} </td> )}
                         </tr>
                     )
                 }

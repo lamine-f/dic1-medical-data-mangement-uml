@@ -12,7 +12,7 @@ export default function useLogout () {
         loader.setLoading(true);
         setTimeout(() => {
             loader.setLoading(false);
-            navigate("");
+            navigate("/");
         }, loadTime);
     }
 

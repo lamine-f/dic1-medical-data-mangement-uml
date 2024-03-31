@@ -6,8 +6,9 @@ export default function Buttons ({children}) {
 
     useEffect(() => {
         setActives( children.map(node => node.props.isActive || false ) )
-    }, [children]);
+    }, []);
 
+    console.log(actives)
     const genActive = (length, id) => {
         return Array.from({length}, (v, k) => false).map( (_, index) => index === id );
     }

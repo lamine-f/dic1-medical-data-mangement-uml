@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.css"
-import InputText from "../InputText/InputText.component";
+import InputText from "../inputText/InputText.component";
 
 interface SearchBarProps {
     getInput: (v:string) => void

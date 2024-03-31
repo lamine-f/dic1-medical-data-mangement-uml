@@ -1,22 +1,23 @@
 import React, {createContext, PropsWithChildren, useContext, useEffect, useState} from "react";
-import {backend} from "../_api/instances";
 import {MedicalFile} from "../types/medicalfile";
 import useApi from "../_hooks/useApi";
-import {useLoaderContext} from "../components/loader/useLoader";
+import {MedicalFileConfRoutes, MedicalFileEndPoints} from "../_api/endPoints";
 
 export interface MedicalFileStoreValue {
     data: MedicalFile[]
     setData: (v: MedicalFile[]) => void,
+    addNewMedicalFile: (v: number) => void
 }
 
 const MedicalFileStore = createContext<MedicalFileStoreValue | undefined>(undefined);
 export const MedicalFileStoreProvider = ({ children } : PropsWithChildren) => {
     const [medicalFiles, setMedicalFiles] = useState<MedicalFile[]>([])
     const [response, error, loading, fetch] = useApi();
+    const [creationResponse, creationError, creationLoading, creationFetch] = useApi();
 
     useEffect(() => {
-        fetch({url: "medicalFiles", method: "GET", axiosInstance:backend})
-    }, []);
+        fetch(MedicalFileConfRoutes.getAll);
+    }, [creationResponse]);
 
     useEffect(() => {
         if (response?.data){
@@ -28,8 +29,23 @@ export const MedicalFileStoreProvider = ({ children } : PropsWithChildren) => {
     const setData = (data: MedicalFile[]) => {
         console.log("refresh data");
     }
+
+    const addNewMedicalFile = (patientId:number) => {
+        creationFetch({
+            ...MedicalFileConfRoutes.addNew,
+            url: MedicalFileConfRoutes.addNew.url+"/"+patientId,
+            requestConfig: [
+                {
+                    "creationDate": new Date().toJSON(),
+                    "modificationDate": new Date().toJSON(),
+                    "consultationSheets": []
+                }
+            ]
+        })
+    }
+
     return (
-        <MedicalFileStore.Provider value={ {data: medicalFiles, setData} }>
+        <MedicalFileStore.Provider value={ {data: medicalFiles, setData, addNewMedicalFile} }>
             {children}
         </MedicalFileStore.Provider>
     );

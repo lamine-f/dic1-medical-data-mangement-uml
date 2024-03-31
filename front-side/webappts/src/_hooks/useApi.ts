@@ -1,5 +1,12 @@
 import {useEffect, useState} from "react";
 
+export interface RequestConfig {
+    axiosInstance: any;
+    method: string;
+    url: string;
+    requestConfig?: any[];
+}
+
 const useApiFunction = () => {
 
     const [response, setResponse] = useState<any>(null);
@@ -8,25 +15,17 @@ const useApiFunction = () => {
     const [controller, setController] = useState<AbortController>();
 
 
-    const axiosFetch = async (configObj: {
-        axiosInstance: any;
-        method: string;
-        url: string;
-        requestConfig?: any[];
-    }) : Promise<any> => {
 
+    const axiosFetch = async (configObj: RequestConfig ) : Promise<any> => {
         setLoading(true);
-
         const ctrl = new AbortController();
         setController(ctrl);
-
         const {
             axiosInstance,
             method,
             url,
             requestConfig = []
         } = configObj;
-
 
         await  axiosInstance[method.toLowerCase()](url,
             ...requestConfig

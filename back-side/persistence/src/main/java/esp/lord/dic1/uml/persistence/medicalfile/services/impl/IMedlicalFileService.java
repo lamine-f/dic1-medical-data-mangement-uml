@@ -1,5 +1,7 @@
 package esp.lord.dic1.uml.persistence.medicalfile.services.impl;
 
+import esp.lord.dic1.uml.persistence.entities.Patient;
+import esp.lord.dic1.uml.persistence.exceptions.PatientNotFoundException;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.ConsultationSheet;
 import esp.lord.dic1.uml.persistence.medicalfile.entities.MedicalFile;
 import esp.lord.dic1.uml.persistence.medicalfile.dtos.MedicalFileDto;
@@ -43,16 +45,18 @@ public class IMedlicalFileService implements MedicalFileService {
     }
 
     @Override
-    public List<MedicalFileDto> getMedicalFilesOfPatient(Integer id) {
-        //[TODO] GET PATIENT MEDICAL FILES
-        List<MedicalFile> medicalFiles = this.medicalFileRepository.findAll();
-        return this.medicalFilesToModels(medicalFiles);
+    public List<MedicalFileDto> getMedicalFilesOfPatient(Integer id) throws PatientNotFoundException {
+        Patient patient = this.getEntity.getPatient(id);
+        List<MedicalFileDto> medicalFiles = this.medicalFilesToModels(  this.medicalFileRepository.findAllByPatient(patient) );
+        return medicalFiles;
     }
 
     @Override
-    public MedicalFile create(MedicalFileDto medicalFileDto) {
+    public MedicalFile create(MedicalFileDto medicalFileDto, Integer patientId) throws PatientNotFoundException {
+        Patient patient = this.getEntity.getPatient(patientId);
         MedicalFile medicalFileSaving = MedicalFileDto.toMedicalFile(medicalFileDto);
         medicalFileSaving.setConsultationSheets(new ArrayList<>());
+        medicalFileSaving.setPatient(patient);
         MedicalFile medicalFileSaved = medicalFileRepository.save(medicalFileSaving);
         return medicalFileSaved;
     }

@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("medicalFiles/consultationSheets/analyses")
+@CrossOrigin(value = "*")
 public class AnalysisController {
 
     private final AnalysisService analysisService;

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+.details {
+    width: 100%;
+    padding: 20px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: bold;
+    padding: 30px 0;
+}
+.people{
+    font-size: 18px;
+    box-shadow: 0px 7px 25px rgb(0, 0, 0, 0.08);
+    border-radius: 10px;
+    width: 100%;
+}
+.header, .people {
+
+}
+
+
+
+
+.row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.cell {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+}
+.cell:first-child {
+    text-align: left;
+}
+
+.rowClickButton {
+    background: var(--secondary--color);
+    padding: 0 10px;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.rowClickButton:hover {
+    filter: invert(1);
+}
+
+
+
+.hRowClickButton{
+    text-decoration: none;
+    background-color: dodgerblue;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+    font-size: 17px;
+    border: 1px solid white;
+    cursor: pointer;
+
+}
+.hRowClickButton:hover{
+    background-color: white;
+    color: var(--primary--color);
+    border: 1px solid dodgerblue;
+}
+.hRowClickButton i{
+    font-size: 22px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
