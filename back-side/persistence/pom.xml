@@ -15,6 +15,7 @@
     <description>persistence</description>
     <properties>
         <java.version>17</java.version>
+        <start-class>esp.lord.dic1.uml.persistence.PersistenceApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
