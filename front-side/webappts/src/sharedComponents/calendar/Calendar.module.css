@@ -1,13 +1,14 @@
 .container {
     position: relative;
     width: 80%;
-    height: 70%; /*min-height: 850px*/
     margin: 0 auto;
     padding: 5px;
     color: #fff;
     display: flex;
     border-radius: 10px;
     background-color: #373c4f;
+    min-height: 500px; /*min-height: 850px*/
+    height: 70%;
 }
 .left {
     width: 60%;
