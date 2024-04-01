@@ -7,5 +7,6 @@ export interface Preinscription {
 export interface PreinscriptionFields  {
     indication: string,
     period: string,
-    id?: number
+    id: number,
+    drugDesignation?: string[]
 }

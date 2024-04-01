@@ -113,3 +113,32 @@ export const PatientsConfRoutes: PatientsConfRoutesValues = {
         requestConfig: []
     },
 }
+
+interface DrugsConfRoutesValues {
+    getAll: RequestConfig,
+    addNew: RequestConfig,
+    addDrugToPreinscription: RequestConfig
+
+}
+const DrugsConfRoute = "medicalFiles/consultationSheets/drugs"
+export const DrugsConfRoutes: DrugsConfRoutesValues = {
+    getAll: {
+        url: DrugsConfRoute,
+        method: "GET",
+        axiosInstance:backend
+    },
+
+    addNew: {
+        url: DrugsConfRoute,
+        method: "PUT",
+        axiosInstance:backend,
+        requestConfig: []
+    },
+
+    addDrugToPreinscription: {
+        url: DrugsConfRoute,
+        method: "PATCH",
+        axiosInstance:backend,
+        requestConfig: []
+    },
+}

@@ -32,7 +32,7 @@ function App() {
             <Route path="patient" element={<Patient/>} />
             <Route path="medicalfile"  element={<MedicalFile/>} />
             <Route path="medicalfile/:id"  element={<ConsultationSheets/>} />
-            <Route path="medicalfile/:medicalId/:sheetNumber"  element={<><Analyses/> <Preinscriprion/> </>} />
+            <Route path="medicalfile/:medicalId/:sheetNumber"  element={<><Preinscriprion/> <Analyses/> </>} />
             <Route path="meets"  element={<MeetLayout/>} />
             <Route path="stats"  element={<div>Statistiques (En cours)</div>} />
           </Route>

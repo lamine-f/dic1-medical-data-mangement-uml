@@ -10,7 +10,8 @@ export interface PreinscriptionValue {
     setData: (v: Preinscription[]) => void,
     addNew: (preinscription:{id: number, indication: string, period: string}) => void,
     id: number,
-    setId: (v: number) => void
+    setId: (v: number) => void,
+    createdResponse: any
 }
 
 const preinscription = createContext<PreinscriptionValue | undefined>(undefined);
@@ -19,6 +20,7 @@ export const PreinscriptionProvider = ({ children } : PropsWithChildren) => {
     const [id, setId] = useState<number>(0);
     const [response, error, loading, fetch] = useApi();
     const [createResponse, createError, createLoading, createFetch] = useApi();
+    const [newResponse, setNewResponse] = useState<Preinscription>();
 
     useEffect(() => {
         if (id !== 0)
@@ -34,6 +36,13 @@ export const PreinscriptionProvider = ({ children } : PropsWithChildren) => {
             setPreinscriptions( [...files] )
         }
     }, [response]);
+
+
+    useEffect(() => {
+        if (createResponse) {
+            setNewResponse(createResponse.data);
+        }
+    }, [createResponse]);
 
     const setData = (data: Preinscription[]) => {
         console.log("refresh data");
@@ -54,7 +63,7 @@ export const PreinscriptionProvider = ({ children } : PropsWithChildren) => {
 
 
     return (
-        <preinscription.Provider value={ {data: analyses, setData, id, setId, addNew} }>
+        <preinscription.Provider value={ {data: analyses, setData, id, setId, addNew, createdResponse: newResponse} }>
             {children}
         </preinscription.Provider>
     );

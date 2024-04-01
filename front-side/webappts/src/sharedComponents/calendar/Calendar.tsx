@@ -152,11 +152,11 @@ function Calendar() {
         }
 
         localStorage.setItem("events", JSON.stringify(events));
+        getEvents();
     }
     function getEventsOfDay() {
         const evts = eventsArr.filter(events => events.day === eventsOfDay?.day && events.month === eventsOfDay.month && events.year === eventsOfDay.year );
             const [eventsData]  = evts.map(evt => evt.data);
-        console.log(eventsData)
             // return []
         return eventsData;
     }

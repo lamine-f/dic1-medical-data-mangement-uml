@@ -52,8 +52,8 @@ function Analyses () {
                         <Row
                             key={id}
                             actionButton={<div style={{display: "flex", gap: "10px"}} >
-                                <RowClickButton value={"voir"}  action={() => {}} />
-                                <RowClickButton value={"éditer"}  action={() => {}} />
+                                {/*<RowClickButton value={"voir"}  action={() => {}} />*/}
+                                {/*<RowClickButton value={"éditer"}  action={() => {}} />*/}
                             </div>}
                             children={<>
                                 <Cell value={value.description} />

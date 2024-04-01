@@ -9,12 +9,25 @@
 }
 
 .table td, .table th  {
-    text-align: left;
+    /*text-align: left;*/
+    width: 250px;
+    height: 50px;
 }
 
+.table td {
+    border: 1px solid black;
+    border-radius: 10px;
+}
 .row:hover {
     transform: scale(1.05);
     cursor: pointer;
+}
+
+
+
+.row:active {
+    background: greenyellow;
+    color: white;
 }
 
 .rowChoice {

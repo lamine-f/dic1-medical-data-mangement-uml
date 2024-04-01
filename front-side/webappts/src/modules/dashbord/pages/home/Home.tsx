@@ -2,6 +2,7 @@ import styles from "./Home.module.css"
 import {PropsWithChildren} from "react";
 import {Link} from "react-router-dom";
 import Header from "../../components/header/header";
+import Footer from "../../../landingpage/components/Footer/footer.component";
 export  default function Home () {
 
     return <div className={""} >
@@ -17,6 +18,7 @@ export  default function Home () {
 function Section1 ({children}: PropsWithChildren) {
     return <section className={`${styles.sectionWrapper} ${styles.sectionWrapper1}` }  >
         {children}
+        <Footer/>
     </section>
 }
 

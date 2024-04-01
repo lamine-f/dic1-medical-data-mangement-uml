@@ -74,7 +74,7 @@ function MedicalFileChild () {
                 setShow={setForm}
                 inputsText={<>
                     <StuffPicker
-                        keys={{firstName: "Prénom(s)", lastName: "Nom", age: "Age" }}
+                        keys={{  lastName: "Nom", firstName: "Prénom(s)",  age: "Age", id: "Numéro"  }}
                         data={usePatientFields(patientStore.data)}
                         setChoice={setPatient}
                     />

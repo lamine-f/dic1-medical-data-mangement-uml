@@ -14,7 +14,6 @@ export default function useMedicalFileFields (medicalFiles: MedicalFile[]) {
         return time;
     }
 
-
      const fieldsName: MedicalFileFields = {
         patientName:"Nom du Patient",
         modificationDate:"Date de modification",
@@ -23,7 +22,7 @@ export default function useMedicalFileFields (medicalFiles: MedicalFile[]) {
          const date = getDate(medicalFile.modificationDate as string);
          const name = patientStore.data.filter( value => value.id == medicalFile.patientId )[0];
          const fields: MedicalFileFields = {
-            patientName: name.firstName+" "+name.lastName,
+            patientName: name?.firstName+" "+name?.lastName,
             modificationDate: `${date.date} à ${date.time}`,
              fileNumber: medicalFile.fileNumber
         };

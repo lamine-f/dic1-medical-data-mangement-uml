@@ -7,14 +7,17 @@ import useLogin from "../../../../_hooks/useLogin";
 import {Credential} from "../../../../types/user";
 
 
+import icon from "../../static/images/app-icon.jpeg"
 export default function Login ({show}: {show: (v: boolean) => void}) {
 
     const [credentials, setCredentials] = useState<Credential>({username:"", password:""})
     const login = useLogin();
 
+
     return <section className={styles.wrapper} >
         <div className={styles.container} >
             <div className={styles.loginHeader} >
+                <img className={styles.logo} src={icon} alt={"app icon"} />
             </div>
             <div className={styles.loginMain} >
                 <div className={styles.inputsContainer} >

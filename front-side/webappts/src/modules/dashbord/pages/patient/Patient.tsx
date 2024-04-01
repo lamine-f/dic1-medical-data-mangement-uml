@@ -8,40 +8,9 @@ import {useEffect, useState} from "react";
 import {PatientFields, Sex} from "../../../../types/patient";
 import usePatientFields from "../../../../_store/display/usePatientFields";
 import InputText from "../../../../sharedComponents/inputText/InputText.component";
+import SelectInput, {Options} from "../../../../sharedComponents/selectInput/SelectInput";
 
 function PatientContent () {
-    // return <section className={styles.wrapper}>
-    //     {/*<SideBar*/}
-    //     {/*    headerText={"Patient"}*/}
-    //     {/*    width={"250px"}*/}
-    //     {/*>*/}
-    //     {/*    <Buttons >*/}
-    //     {/*        <Button route={"management"} value={"Tous"}/>*/}
-    //     {/*        <Button route={"management/add"} value={"Ajouter"}/>*/}
-    //     {/*        <Button route={"management/modify"} value={"Modifier"}/>*/}
-    //     {/*        <Button route={"management/delete"} value={"Supprimer"}/>*/}
-    //     {/*    </Buttons>*/}
-    //     {/*</SideBar>*/}
-    //     {/*<main className={styles.main}>*/}
-    //         {/*<Outlet></Outlet>*/}
-    //     {/*</main>*/}
-    //
-    //
-    //
-    //     <Table
-    //         hrowButtonActions={<HRowClickButton value={"Ajouter"} action={ () => {} } />}
-    //         name={"Patients"}
-    //         hrow={<><HRow >
-    //             <Cell value={"Nom"}/>
-    //             <Cell value={"Prénom(s)"}/>
-    //             <Cell value={"Sexe"}/>
-    //             <Cell value={"Age"}/>
-    //         </HRow></>}
-    //         row={<></>}
-    //     />
-    //
-    //
-    // </section>
     const [patient, setPatient] = useState<PatientPayload>({
         firstName: "",
         lastName: "",
@@ -64,7 +33,6 @@ function PatientContent () {
         setFields(prevState => ( newFieldsData ))
     }
 
-
     return <section className={styles.wrapper} >
         <div className={styles.medicalFilesContainer} >
             <SearchBar getInput={getInput} />
@@ -83,7 +51,7 @@ function PatientContent () {
                     (fields as PatientFields[]).map((value, id) => (
                     <Row
                     key={id}
-                actionButton={<RowClickButton value={"Voir"} action={() => {}} />}
+                actionButton={<></>}
             >
                 <Cell value={`${value.lastName}`}/>
                 <Cell value={value.firstName}/>
@@ -102,13 +70,21 @@ function PatientContent () {
                 <InputText type={"text"} required={true} label={"Prénom(s)"} onChange={(e) => setPatient( v => ({...v, firstName: e.target.value}) )} />
                 <InputText type={"text"} required={true} label={"Nom"} onChange={(e) => setPatient( v => ({...v, lastName: e.target.value}) )} />
                 <InputText type={"email"} required={true} label={"Email"} onChange={(e) => setPatient( v => ({...v, email: e.target.value}) )} />
-                <InputText type={"text"} required={true} label={"Sex"} onChange={(e) => setPatient( v => ({...v, sex:  Sex.AUTRE }) )} />
+                <SelectInput
+                    getSelected={ (sexe) => setPatient( v => ({...v, sex: sexe  }) )}
+                    label={"Sexe"}
+                    options={[
+                        <Options label={"Masculin"} value={Sex.MASCULIN} />,
+                        <Options label={"Féminin"} value={Sex.FEMININ} />,
+                        <Options label={"Autre"} value={Sex.AUTRE} />,
+                ]} />
                 <InputText height={"100px"} type={"date"} required={true} label={"Date de naissance"} onChange={(e) => setPatient( v => ({...v, birthDay: e.target.value}) )} />
             </>}
         />
     </div>
 </section>
 }
+
 
 export default function Patient () {
     return <PatientProvider>
